@@ -12,4 +12,8 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgQuickPickOneCLR Condition=" '$(PkgQuickPickOneCLR)' == '' ">C:\Users\ASUS\.nuget\packages\quickpickoneclr\3.4.18037.2</PkgQuickPickOneCLR>
+    <PkgApollo13_DataAccessLayer Condition=" '$(PkgApollo13_DataAccessLayer)' == '' ">C:\Users\ASUS\.nuget\packages\apollo13.dataaccesslayer\3.4.18001</PkgApollo13_DataAccessLayer>
+  </PropertyGroup>
 </Project>

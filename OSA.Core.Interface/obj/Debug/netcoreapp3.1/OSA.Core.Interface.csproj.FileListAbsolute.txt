@@ -1,0 +1,8 @@
+D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OSA.Core.Interface.deps.json
+D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OSA.Core.Interface.dll
+D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OSA.Core.Interface.pdb
+D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Interface.csprojAssemblyReference.cache
+D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Interface.AssemblyInfoInputs.cache
+D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Interface.AssemblyInfo.cs
+D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Interface.dll
+D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Interface.pdb

@@ -1,0 +1,8 @@
+D:\Angular\OfficeAttendenceSystem\OSA.Infructure.Context\bin\Debug\netcoreapp3.1\OSA.Infructure.Context.deps.json
+D:\Angular\OfficeAttendenceSystem\OSA.Infructure.Context\bin\Debug\netcoreapp3.1\OSA.Infructure.Context.dll
+D:\Angular\OfficeAttendenceSystem\OSA.Infructure.Context\bin\Debug\netcoreapp3.1\OSA.Infructure.Context.pdb
+D:\Angular\OfficeAttendenceSystem\OSA.Infructure.Context\obj\Debug\netcoreapp3.1\OSA.Infructure.Context.csprojAssemblyReference.cache
+D:\Angular\OfficeAttendenceSystem\OSA.Infructure.Context\obj\Debug\netcoreapp3.1\OSA.Infructure.Context.AssemblyInfoInputs.cache
+D:\Angular\OfficeAttendenceSystem\OSA.Infructure.Context\obj\Debug\netcoreapp3.1\OSA.Infructure.Context.AssemblyInfo.cs
+D:\Angular\OfficeAttendenceSystem\OSA.Infructure.Context\obj\Debug\netcoreapp3.1\OSA.Infructure.Context.dll
+D:\Angular\OfficeAttendenceSystem\OSA.Infructure.Context\obj\Debug\netcoreapp3.1\OSA.Infructure.Context.pdb

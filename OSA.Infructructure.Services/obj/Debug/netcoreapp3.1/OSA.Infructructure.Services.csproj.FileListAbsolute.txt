@@ -1,0 +1,15 @@
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OSA.Infructructure.Services.deps.json
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OSA.Infructructure.Services.dll
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OSA.Infructructure.Services.pdb
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\obj\Debug\netcoreapp3.1\OSA.Infructructure.Services.csprojAssemblyReference.cache
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\obj\Debug\netcoreapp3.1\OSA.Infructructure.Services.AssemblyInfoInputs.cache
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\obj\Debug\netcoreapp3.1\OSA.Infructructure.Services.AssemblyInfo.cs
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\obj\Debug\netcoreapp3.1\OSA.Infructructure.Services.dll
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\obj\Debug\netcoreapp3.1\OSA.Infructructure.Services.pdb
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OAS.Core.Entity.dll
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OSA.Core.Interface.dll
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OSA.Infructure.Context.dll
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OAS.Core.Entity.pdb
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OSA.Core.Interface.pdb
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OSA.Infructure.Context.pdb
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\obj\Debug\netcoreapp3.1\OSA.Infructructure.Services.csproj.CopyComplete
