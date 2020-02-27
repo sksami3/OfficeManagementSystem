@@ -10,10 +10,67 @@
         "dependencies": {
           "OAS.Core.Entity": "1.0.0",
           "OSA.Core.Interface": "1.0.0",
-          "OSA.Infructure.Context": "1.0.0"
+          "OSA.Infructure.Context": "1.0.0",
+          "QuickPick.One": "3.4.18143.6"
         },
         "runtime": {
           "OSA.Infructructure.Services.dll": {}
+        }
+      },
+      "Apollo13/3.4.17344": {
+        "dependencies": {
+          "NLog": "4.4.12"
+        },
+        "runtime": {
+          "lib/net45/Apollo13.dll": {
+            "assemblyVersion": "3.4.17344.0",
+            "fileVersion": "3.4.17344.0"
+          }
+        }
+      },
+      "Apollo13.DataAccessLayer/3.4.18001": {
+        "dependencies": {
+          "Apollo13.PerformanceMonitor": "3.4.18001.2"
+        },
+        "runtime": {
+          "lib/net45/Apollo13.DataAccessLayer.dll": {
+            "assemblyVersion": "3.4.18001.0",
+            "fileVersion": "3.4.18001.0"
+          }
+        }
+      },
+      "Apollo13.Mapper/3.4.17344": {
+        "dependencies": {
+          "NLog": "4.4.12"
+        },
+        "runtime": {
+          "lib/net45/Apollo13.Mapper.dll": {
+            "assemblyVersion": "3.4.17344.0",
+            "fileVersion": "3.4.17344.0"
+          }
+        }
+      },
+      "Apollo13.PerformanceMonitor/3.4.18001.2": {
+        "dependencies": {
+          "Apollo13.Threadworker": "3.4.18001.2"
+        },
+        "runtime": {
+          "lib/net45/Apollo13.PerformanceMonitor.dll": {
+            "assemblyVersion": "3.4.18001.2",
+            "fileVersion": "3.4.18001.2"
+          }
+        }
+      },
+      "Apollo13.Threadworker/3.4.18001.2": {
+        "dependencies": {
+          "Microsoft.Tpl.Dataflow": "4.5.24",
+          "NLog": "4.4.12"
+        },
+        "runtime": {
+          "lib/net45/Apollo13.Threadworker.dll": {
+            "assemblyVersion": "3.4.18001.2",
+            "fileVersion": "3.4.18001.2"
+          }
         }
       },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
@@ -180,9 +237,107 @@
           }
         }
       },
+      "Microsoft.Tpl.Dataflow/4.5.24": {},
+      "NLog/4.4.12": {
+        "runtime": {
+          "lib/net45/NLog.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.4.5791.0"
+          }
+        }
+      },
+      "QPick.Classlogger/3.4.17343": {
+        "dependencies": {
+          "Apollo13.Mapper": "3.4.17344",
+          "Apollo13.Threadworker": "3.4.18001.2"
+        },
+        "runtime": {
+          "lib/net45/QPick.Classlogger.dll": {
+            "assemblyVersion": "3.4.17343.0",
+            "fileVersion": "3.4.17343.0"
+          }
+        }
+      },
+      "Qpick.Enums/3.4.18037.1": {
+        "runtime": {
+          "lib/net45/Qpick.Enums.dll": {
+            "assemblyVersion": "3.4.18037.1",
+            "fileVersion": "3.4.18037.1"
+          }
+        }
+      },
+      "QPick.Methodlogger/3.3.17164": {
+        "runtime": {
+          "lib/net45/QPick.Methodlogger.dll": {
+            "assemblyVersion": "3.3.17164.0",
+            "fileVersion": "3.3.17164.0"
+          }
+        }
+      },
+      "QPick.StocklocationMask/3.3.17170": {
+        "dependencies": {
+          "NLog": "4.4.12"
+        },
+        "runtime": {
+          "lib/net45/QPick.StocklocationMask.dll": {
+            "assemblyVersion": "3.3.17170.0",
+            "fileVersion": "3.3.17170.0"
+          }
+        }
+      },
+      "QPick.XML/3.3.17170": {
+        "dependencies": {
+          "NLog": "4.4.12"
+        },
+        "runtime": {
+          "lib/net45/QPick.XML.dll": {
+            "assemblyVersion": "3.3.17170.0",
+            "fileVersion": "3.3.17170.0"
+          }
+        }
+      },
+      "QuickPick.One/3.4.18143.6": {
+        "dependencies": {
+          "Apollo13": "3.4.17344",
+          "Apollo13.DataAccessLayer": "3.4.18001",
+          "Apollo13.Mapper": "3.4.17344",
+          "Apollo13.PerformanceMonitor": "3.4.18001.2",
+          "Apollo13.Threadworker": "3.4.18001.2",
+          "NLog": "4.4.12",
+          "QPick.Classlogger": "3.4.17343",
+          "QPick.Methodlogger": "3.3.17164",
+          "QPick.StocklocationMask": "3.3.17170",
+          "QPick.XML": "3.3.17170",
+          "Qpick.Enums": "3.4.18037.1",
+          "QuickPickOneCLR": "3.4.18037.2",
+          "System.Linq.Dynamic": "1.0.7"
+        },
+        "runtime": {
+          "lib/net45/QuickPick.One.dll": {
+            "assemblyVersion": "3.4.18143.6",
+            "fileVersion": "3.4.18143.6"
+          }
+        }
+      },
+      "QuickPickOneCLR/3.4.18037.2": {
+        "runtime": {
+          "lib/net45/QuickPickOneCLR.dll": {
+            "assemblyVersion": "3.4.18037.2",
+            "fileVersion": "3.4.18037.2"
+          }
+        }
+      },
       "System.Collections.Immutable/1.7.0": {},
       "System.ComponentModel.Annotations/4.7.0": {},
       "System.Diagnostics.DiagnosticSource/4.7.0": {},
+      "System.Linq.Dynamic/1.0.7": {
+        "runtime": {
+          "lib/net40/System.Linq.Dynamic.dll": {
+            "assemblyVersion": "1.0.6132.35681",
+            "fileVersion": "1.0.6132.35681"
+          }
+        }
+      },
       "OAS.Core.Entity/1.0.0": {
         "runtime": {
           "OAS.Core.Entity.dll": {}
@@ -212,6 +367,41 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Apollo13/3.4.17344": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ihxuw8r9Fj6o/g4rhCeuvWQ5CLMgFXmzO34pB8HcXgRrINQG4A76wNLJ0epQMyhGrwyQfXmeA02gMc3b1busQQ==",
+      "path": "apollo13/3.4.17344",
+      "hashPath": "apollo13.3.4.17344.nupkg.sha512"
+    },
+    "Apollo13.DataAccessLayer/3.4.18001": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cyzTK+Cm6nJtkP0+4Yb2wyrXU1TeWV9GgOGw6UW63ad2Wvm24dFWdIdOb7G6cM0M69jRFRZZizehBu62o9ogOg==",
+      "path": "apollo13.dataaccesslayer/3.4.18001",
+      "hashPath": "apollo13.dataaccesslayer.3.4.18001.nupkg.sha512"
+    },
+    "Apollo13.Mapper/3.4.17344": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Mw7Pm4pf8gm6PPCT8jFL04zuxLfC8jyZMatb5tDeKKTB7dPxW3dLPofS9YaqS+LHYVF64fL4xb4kmHYBrdBW0Q==",
+      "path": "apollo13.mapper/3.4.17344",
+      "hashPath": "apollo13.mapper.3.4.17344.nupkg.sha512"
+    },
+    "Apollo13.PerformanceMonitor/3.4.18001.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DcP97ukDNO0yl2QvA9uMunZxL2k+NnFeaaLArwIVfT0UJr3YSMM/kGiCdTkLVHzEe/ctgNKGb4qvJzjzhVnF2Q==",
+      "path": "apollo13.performancemonitor/3.4.18001.2",
+      "hashPath": "apollo13.performancemonitor.3.4.18001.2.nupkg.sha512"
+    },
+    "Apollo13.Threadworker/3.4.18001.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tjmFr4d8PTgC42LLKPBpyMaXqP8hlimsdBSuM5mCSSe9eDhicD8hgozO2xxAAC0IlxrgyJ+clGzoPOfEqcARtQ==",
+      "path": "apollo13.threadworker/3.4.18001.2",
+      "hashPath": "apollo13.threadworker.3.4.18001.2.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
       "type": "package",
@@ -325,6 +515,69 @@
       "path": "microsoft.extensions.primitives/3.1.2",
       "hashPath": "microsoft.extensions.primitives.3.1.2.nupkg.sha512"
     },
+    "Microsoft.Tpl.Dataflow/4.5.24": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6BE4Vu74+dkv5AkJd+UxW1sFMepMZOVlUoMZDUKqhc4Bf7pe7yySzCj6QrowUZbCqcDPwOiQsAgz3nXiLQSyMw==",
+      "path": "microsoft.tpl.dataflow/4.5.24",
+      "hashPath": "microsoft.tpl.dataflow.4.5.24.nupkg.sha512"
+    },
+    "NLog/4.4.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fODew3BFT2XhAuqhGo2ZYT9OJE0ciGEBfvKXOmAAvaDsP/3ROIf083p8QUnmwKKw4jCkVW06ObX6gn/eFi2Skg==",
+      "path": "nlog/4.4.12",
+      "hashPath": "nlog.4.4.12.nupkg.sha512"
+    },
+    "QPick.Classlogger/3.4.17343": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I537L1lXXNT8he6fjNoWVy7DcypR2Sly5vUCxLWsoJhGL6u2x868GSK7cz+5GrJ3P1Dn8ngY/1hKuUmuQIrX4g==",
+      "path": "qpick.classlogger/3.4.17343",
+      "hashPath": "qpick.classlogger.3.4.17343.nupkg.sha512"
+    },
+    "Qpick.Enums/3.4.18037.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+mnixmYCKJvx9HoSGbTvZlkHzghnG/98+0av2CIdy4vZ5SZ39GT0y/bXy2DpUoUadA8nOAA/5FjK0GwsdIIISQ==",
+      "path": "qpick.enums/3.4.18037.1",
+      "hashPath": "qpick.enums.3.4.18037.1.nupkg.sha512"
+    },
+    "QPick.Methodlogger/3.3.17164": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qxpRrL2ZVH1L+WyeK0KLKeJwWI8aneZzZC/lAxYwF1DAlFICxlYXfw9ajVsRTysT5Bg0AQwCj170rxGMURW+Yg==",
+      "path": "qpick.methodlogger/3.3.17164",
+      "hashPath": "qpick.methodlogger.3.3.17164.nupkg.sha512"
+    },
+    "QPick.StocklocationMask/3.3.17170": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+tixKjSL9U4fn60Jnh9cvWVyruS2U6UVIsq4cRx+cImumTfDOf8jOkHcuk2U+v68DArn88bhEexTSUInjnidSg==",
+      "path": "qpick.stocklocationmask/3.3.17170",
+      "hashPath": "qpick.stocklocationmask.3.3.17170.nupkg.sha512"
+    },
+    "QPick.XML/3.3.17170": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4bymWtvnsqn782JCJYpcGIbav3K/Spya4X7OIvsVl9g4cyApdJCOR6yhzwaopecYW96QA4jF5s2vrtgX95WpEw==",
+      "path": "qpick.xml/3.3.17170",
+      "hashPath": "qpick.xml.3.3.17170.nupkg.sha512"
+    },
+    "QuickPick.One/3.4.18143.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7fuj+FJtCH3qixWaQbqdgasQ96L0jb9DcrJjBB67bLDoy3PYrEAYWFX+c14DNWGfCKYY8TKQIFmQj198t9dxpA==",
+      "path": "quickpick.one/3.4.18143.6",
+      "hashPath": "quickpick.one.3.4.18143.6.nupkg.sha512"
+    },
+    "QuickPickOneCLR/3.4.18037.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jqo7E/HViKSj/6tDW099xD8VqxgUxwsggAN6kmQh3IXKJJKBBNjPx2FI/vsxI+PZaMf47OYDLqx/wI4RhZ2JIA==",
+      "path": "quickpickoneclr/3.4.18037.2",
+      "hashPath": "quickpickoneclr.3.4.18037.2.nupkg.sha512"
+    },
     "System.Collections.Immutable/1.7.0": {
       "type": "package",
       "serviceable": true,
@@ -345,6 +598,13 @@
       "sha512": "sha512-oJjw3uFuVDJiJNbCD8HB4a2p3NYLdt1fiT5OGsPLw+WTOuG0KpP4OXelMmmVKpClueMsit6xOlzy4wNKQFiBLg==",
       "path": "system.diagnostics.diagnosticsource/4.7.0",
       "hashPath": "system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512"
+    },
+    "System.Linq.Dynamic/1.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BxEYab1SCgaqElLv57DrfPyi3ksK1Pbk5eXfwkXRZOdlC4aFT03QRkPEbYFBnFPnxhoLlc/Rg2b8vL0ffYSYWA==",
+      "path": "system.linq.dynamic/1.0.7",
+      "hashPath": "system.linq.dynamic.1.0.7.nupkg.sha512"
     },
     "OAS.Core.Entity/1.0.0": {
       "type": "project",

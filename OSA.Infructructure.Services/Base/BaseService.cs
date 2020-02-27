@@ -21,7 +21,7 @@ namespace OSA.Infructructure.Services.Base
         }
         public bool Delete(T entity)
         {
-           
+
             throw new NotImplementedException();
         }
 
@@ -30,21 +30,28 @@ namespace OSA.Infructructure.Services.Base
             throw new NotImplementedException();
         }
 
-        public async IAsyncEnumerable<T> GetAll()
+        public Task<List<T>> GetAll()
         {
-            var result = await _innerDB.AllAsync(x => !x.IsDelete);
-            yield return result;
+            var result = _innerDB.ToListAsync();
+
+            return result;
             //throw new NotImplementedException();
         }
 
         public bool Insert(T entity)
         {
-            throw new NotImplementedException();
+            var x = _DbContext.Set<T>().Add(entity);
+            return true;
         }
 
         public bool Update(T entity)
         {
             throw new NotImplementedException();
+        }
+
+        List<T> IBaseRepository<T>.GetAll()
+        {
+            return GetAll().Result;
         }
     }
 }

@@ -6,3 +6,6 @@ D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA
 D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Interface.AssemblyInfo.cs
 D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Interface.dll
 D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Interface.pdb
+D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OAS.Core.Entity.dll
+D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OAS.Core.Entity.pdb
+D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Interface.csproj.CopyComplete

@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "OSA.Core.Interface/1.0.0": {
+        "dependencies": {
+          "OAS.Core.Entity": "1.0.0"
+        },
         "runtime": {
           "OSA.Core.Interface.dll": {}
+        }
+      },
+      "OAS.Core.Entity/1.0.0": {
+        "runtime": {
+          "OAS.Core.Entity.dll": {}
         }
       }
     }
   },
   "libraries": {
     "OSA.Core.Interface/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OAS.Core.Entity/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
