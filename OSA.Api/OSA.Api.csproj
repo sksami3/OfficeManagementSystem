@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OSA.Core.Interface\OSA.Core.Interface.csproj" />
+    <ProjectReference Include="..\OSA.Infructructure.Services\OSA.Infructructure.Services.csproj" />
+  </ItemGroup>
+
+
+</Project>
