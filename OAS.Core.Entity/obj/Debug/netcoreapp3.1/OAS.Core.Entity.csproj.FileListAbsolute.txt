@@ -6,3 +6,5 @@ D:\Angular\OfficeAttendenceSystem\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OAS.Co
 D:\Angular\OfficeAttendenceSystem\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OAS.Core.Entity.AssemblyInfo.cs
 D:\Angular\OfficeAttendenceSystem\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OAS.Core.Entity.dll
 D:\Angular\OfficeAttendenceSystem\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OAS.Core.Entity.pdb
+D:\Angular\OfficeAttendenceSystem\OAS.Core.Entity\bin\Debug\netcoreapp3.1\OAS.Core.Entity.runtimeconfig.json
+D:\Angular\OfficeAttendenceSystem\OAS.Core.Entity\bin\Debug\netcoreapp3.1\OAS.Core.Entity.runtimeconfig.dev.json

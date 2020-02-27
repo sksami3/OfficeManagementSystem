@@ -13,3 +13,5 @@ D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\bin\Debug\netcorea
 D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OSA.Core.Interface.pdb
 D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OSA.Infructure.Context.pdb
 D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\obj\Debug\netcoreapp3.1\OSA.Infructructure.Services.csproj.CopyComplete
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OSA.Infructructure.Services.runtimeconfig.json
+D:\Angular\OfficeAttendenceSystem\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OSA.Infructructure.Services.runtimeconfig.dev.json

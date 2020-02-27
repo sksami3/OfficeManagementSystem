@@ -16,7 +16,7 @@ namespace OSA.Infructructure.Services.Base
         private DbSet<T> _innerDB;
         public BaseService()
         {
-            _DbContext = new OfficeAttendenceSystemDbContext();
+            _DbContext = new OfficeAttendenceSystemDbContext(options: null);
             _innerDB = _DbContext.Set<T>();
         }
         public bool Delete(T entity)

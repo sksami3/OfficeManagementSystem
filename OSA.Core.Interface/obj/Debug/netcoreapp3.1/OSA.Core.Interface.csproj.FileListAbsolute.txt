@@ -9,3 +9,5 @@ D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA
 D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OAS.Core.Entity.dll
 D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OAS.Core.Entity.pdb
 D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Interface.csproj.CopyComplete
+D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OSA.Core.Interface.runtimeconfig.json
+D:\Angular\OfficeAttendenceSystem\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OSA.Core.Interface.runtimeconfig.dev.json

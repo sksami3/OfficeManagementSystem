@@ -9,3 +9,5 @@ D:\Angular\OfficeAttendenceSystem\OSA.Infructure.Context\obj\Debug\netcoreapp3.1
 D:\Angular\OfficeAttendenceSystem\OSA.Infructure.Context\bin\Debug\netcoreapp3.1\OAS.Core.Entity.dll
 D:\Angular\OfficeAttendenceSystem\OSA.Infructure.Context\bin\Debug\netcoreapp3.1\OAS.Core.Entity.pdb
 D:\Angular\OfficeAttendenceSystem\OSA.Infructure.Context\obj\Debug\netcoreapp3.1\OSA.Infructure.Context.csproj.CopyComplete
+D:\Angular\OfficeAttendenceSystem\OSA.Infructure.Context\bin\Debug\netcoreapp3.1\OSA.Infructure.Context.runtimeconfig.json
+D:\Angular\OfficeAttendenceSystem\OSA.Infructure.Context\bin\Debug\netcoreapp3.1\OSA.Infructure.Context.runtimeconfig.dev.json

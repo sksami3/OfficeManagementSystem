@@ -8,6 +8,10 @@ namespace OSA.Infructure.Context.OASDbContext
 {
     public class OfficeAttendenceSystemDbContext : DbContext
     {
+        public OfficeAttendenceSystemDbContext(DbContextOptions<OfficeAttendenceSystemDbContext> options) : base(options)
+        {
+
+        }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
     }
