@@ -1,5 +1,6 @@
 ﻿using BOB.DO.Request.ClientFlow;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using OAS.Core.Entity.Base;
 using OSA.Core.Interface.Base;
 using OSA.Infructure.Context.OASDbContext;
@@ -14,10 +15,12 @@ namespace OSA.Infructructure.Services.Base
     {
         private OfficeAttendenceSystemDbContext _DbContext;
         private DbSet<T> _innerDB;
+        DbContextOptionsBuilder<OfficeAttendenceSystemDbContext> _optionsBuilder;
+
         public BaseService()
         {
-            _DbContext = new OfficeAttendenceSystemDbContext(options: null);
-            _innerDB = _DbContext.Set<T>();
+            _optionsBuilder = new DbContextOptionsBuilder<OfficeAttendenceSystemDbContext>();
+            _DbContext = new OfficeAttendenceSystemDbContext(_optionsBuilder.Options);
         }
         public bool Delete(T entity)
         {
@@ -32,15 +35,29 @@ namespace OSA.Infructructure.Services.Base
 
         public Task<List<T>> GetAll()
         {
-            var result = _innerDB.ToListAsync();
+            try
+            {
+                _innerDB = _DbContext.Set<T>();
+                var result = _innerDB.ToListAsync();
 
-            return result;
-            //throw new NotImplementedException();
+                return result;
+                //throw new NotImplementedException();
+            }
+            catch(Exception e)
+            {
+
+            }
+            return null;
         }
 
         public bool Insert(T entity)
         {
+            entity.CreateDate = DateTime.Now;
+            entity.UpdatedDate = DateTime.Now;
+            entity.IsDelete = false;
+
             var x = _DbContext.Set<T>().Add(entity);
+            _DbContext.SaveChangesAsync();
             return true;
         }
 

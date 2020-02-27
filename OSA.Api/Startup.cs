@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -31,6 +32,8 @@ namespace OSA.Api
         {
             //services.AddDbContext<OfficeAttendenceSystemDbContext>(options => options.(...));
             services.AddDbContext<OfficeAttendenceSystemDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("OfficeAttendenceSystemDbContext")));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddControllers();
 
             services.AddTransient<IDepartmentRepository, DepartmentService>();

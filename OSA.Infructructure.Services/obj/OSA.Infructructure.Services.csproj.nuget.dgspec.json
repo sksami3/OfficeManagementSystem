@@ -10,11 +10,14 @@
         "projectUniqueName": "D:\\Angular\\OfficeAttendenceSystem\\OAS.Core.Entity\\OAS.Core.Entity.csproj",
         "projectName": "OAS.Core.Entity",
         "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\OAS.Core.Entity\\OAS.Core.Entity.csproj",
-        "packagesPath": "C:\\Users\\samiur.rahman\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
         "outputPath": "D:\\Angular\\OfficeAttendenceSystem\\OAS.Core.Entity\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\samiur.rahman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -74,11 +77,14 @@
         "projectUniqueName": "D:\\Angular\\OfficeAttendenceSystem\\OSA.Core.Interface\\OSA.Core.Interface.csproj",
         "projectName": "OSA.Core.Interface",
         "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\OSA.Core.Interface\\OSA.Core.Interface.csproj",
-        "packagesPath": "C:\\Users\\samiur.rahman\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
         "outputPath": "D:\\Angular\\OfficeAttendenceSystem\\OSA.Core.Interface\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\samiur.rahman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -142,11 +148,14 @@
         "projectUniqueName": "D:\\Angular\\OfficeAttendenceSystem\\OSA.Infructructure.Services\\OSA.Infructructure.Services.csproj",
         "projectName": "OSA.Infructructure.Services",
         "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\OSA.Infructructure.Services\\OSA.Infructructure.Services.csproj",
-        "packagesPath": "C:\\Users\\samiur.rahman\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
         "outputPath": "D:\\Angular\\OfficeAttendenceSystem\\OSA.Infructructure.Services\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\samiur.rahman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -190,6 +199,10 @@
               "target": "Package",
               "version": "[3.1.2, )"
             },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
             "QuickPick.One": {
               "target": "Package",
               "version": "[3.4.18143.6, )"
@@ -220,11 +233,14 @@
         "projectUniqueName": "D:\\Angular\\OfficeAttendenceSystem\\OSA.Infructure.Context\\OSA.Infructure.Context.csproj",
         "projectName": "OSA.Infructure.Context",
         "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\OSA.Infructure.Context\\OSA.Infructure.Context.csproj",
-        "packagesPath": "C:\\Users\\samiur.rahman\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
         "outputPath": "D:\\Angular\\OfficeAttendenceSystem\\OSA.Infructure.Context\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\samiur.rahman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -263,6 +279,14 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[3.1.2, )"
             }
