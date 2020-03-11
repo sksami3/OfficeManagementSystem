@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DepartmentService } from 'src/app/Shared/Api/department.service';
+import { Department } from 'src/app/Shared/Models/Department';
 
 @Component({
   selector: 'app-department-list',
@@ -9,13 +10,15 @@ import { DepartmentService } from 'src/app/Shared/Api/department.service';
 export class DepartmentListComponent implements OnInit {
 
   Title = "Department List";
-  departmetnList;
+  departmetnList: any= Array<Department>();
   constructor(private departmentServive : DepartmentService) {
-      this.departmetnList = departmentServive.getAll();
+      this.departmetnList = departmentServive.getAll().subscribe();
    }
 
   ngOnInit(): void {
+    console.log(this.departmetnList);
   }
+  
 
   
 }

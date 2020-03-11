@@ -4,6 +4,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { DepartmentListComponent } from './Department/department-list/department-list.component';
+import { DepartmentService } from './Shared/Api/department.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { DepartmentListComponent } from './Department/department-list/department
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DepartmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
