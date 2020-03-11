@@ -11,7 +11,8 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchUrl": "weatherforecast",
+      "launchBrowser": true,
+      "launchUrl": "api/Departments",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
