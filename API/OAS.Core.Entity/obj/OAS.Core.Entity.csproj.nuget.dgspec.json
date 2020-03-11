@@ -10,14 +10,11 @@
         "projectUniqueName": "D:\\Angular\\OfficeAttendenceSystem\\API\\OAS.Core.Entity\\OAS.Core.Entity.csproj",
         "projectName": "OAS.Core.Entity",
         "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OAS.Core.Entity\\OAS.Core.Entity.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\samiur.rahman\\.nuget\\packages\\",
         "outputPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OAS.Core.Entity\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\samiur.rahman\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
