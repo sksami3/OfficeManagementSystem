@@ -13,25 +13,17 @@ export class DepartmentListComponent implements OnInit {
   departmetnList: any= Array<Department>();
   constructor(private departmentServive : DepartmentService) {
       console.log("In Constructor");
-      this.departmetnList = departmentServive.getAll().subscribe(res=>this.departmetnList=res);
+      //this.departmetnList = departmentServive.getAll().subscribe(res=>this.departmetnList=res);
    }
 
   ngOnInit(): void {
     console.log("ngOnInit");
     //console.log(JSON.stringify(this.departmetnList));
-
-    var seen = [];
-
-    JSON.stringify(this.departmetnList, function(key, val) {
-      if (val != null && typeof val == "object") {
-            if (seen.indexOf(val) >= 0) {
-                return;
-            }
-            seen.push(val);
-        }
-        console.log(val);
-        return val;
+    this.departmentServive.getAll().subscribe( data => {
+        this.departmetnList = data;
     });
+
+    
   }
   
 

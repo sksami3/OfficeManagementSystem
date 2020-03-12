@@ -17,4 +17,8 @@ export class DepartmentService {
   getAll() : Observable<Department[]>{
     return this.http.get<Department[]>(`${this.DepartmetAPI}`);
   }
+
+  getById(Id : number) : Observable<Department>{
+    return this.http.get<Department>(`${this.DepartmetAPI}/${Id}`);
+  }
 }
