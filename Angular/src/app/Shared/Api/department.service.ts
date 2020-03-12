@@ -11,10 +11,14 @@ export class DepartmentService {
 
   constructor(private http : HttpClient) { }
 
-  public API = 'http://localhost:33333/api';
+  public API = 'https://localhost:44370/api';
   public DepartmetAPI = `${this.API}/Departments`;
 
   getAll() : Observable<Department[]>{
     return this.http.get<Department[]>(`${this.DepartmetAPI}`);
+  }
+
+  getById(Id : number) : Observable<Department>{
+    return this.http.get<Department>(`${this.DepartmetAPI}/${Id}`);
   }
 }
