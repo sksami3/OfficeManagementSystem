@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,7 @@ namespace OSA.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[EnableCors("AllowOrigin")]
     public class DepartmentsController : ControllerBase
     {
         private readonly OfficeAttendenceSystemDbContext _context;
@@ -25,6 +27,7 @@ namespace OSA.Api.Controllers
 
         // GET: api/Departments
         [HttpGet]
+        [EnableCors("AllowOrigin")]
         public ActionResult<List<Department>> GetDepartments()
         {
             var result = _departmentRepository.GetAll();

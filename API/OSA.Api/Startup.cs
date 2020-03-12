@@ -38,6 +38,19 @@ namespace OSA.Api
 
             services.AddTransient<IDepartmentRepository, DepartmentService>();
             services.AddControllers().AddNewtonsoftJson();
+
+
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
+
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:4200"));
+            });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +71,11 @@ namespace OSA.Api
             {
                 endpoints.MapControllers();
             });
+
+            app.UseCors(options => options.AllowAnyOrigin());
+
+            app.UseCors(options => options.WithOrigins("https://localhost:4200"));
+
         }
     }
 }
