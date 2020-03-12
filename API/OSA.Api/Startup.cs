@@ -39,24 +39,18 @@ namespace OSA.Api
             services.AddTransient<IDepartmentRepository, DepartmentService>();
             services.AddControllers().AddNewtonsoftJson();
 
-
-            services.AddCors(c =>
+            //CROS
+            services.AddCors(options =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                options.AddPolicy("foo",
+                builder =>
+                {
+                    // Not a permanent solution, but just trying to isolate the problem
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
             });
 
-            services.AddCors(c =>
-            {
-                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:4200"));
-            });
-            services.AddCors(o => o.AddPolicy("AllowOrigin", builder =>
-            {
-                builder.AllowAnyOrigin()
-                       .AllowAnyMethod()
-                       .AllowAnyHeader();
-            }));
-
-
+            services.AddControllers();
 
         }
 
@@ -72,18 +66,29 @@ namespace OSA.Api
 
             app.UseRouting();
 
+            #region Unused for CORS
+            //app.UseAuthorization();
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllers();
+            //});
+            #endregion
+
+            //CORS
+            app.UseHttpsRedirection();
+
+            // Use the CORS policy
+            app.UseCors("foo");
+
+            app.UseRouting();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
-            app.UseCors(options => options.AllowAnyOrigin());
-
-            app.UseCors(options => options.WithOrigins("https://localhost:4200"));
-
-            app.UseCors("AllowOrigin");
 
         }
     }
