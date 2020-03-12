@@ -337,10 +337,10 @@ D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\OSA.Infruc
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.csprojAssemblyReference.cache
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\staticwebassets\OSA.Api.StaticWebAssets.Manifest.cache
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\staticwebassets\OSA.Api.StaticWebAssets.xml
-D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.MvcApplicationPartsAssemblyInfo.cache
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.AssemblyInfoInputs.cache
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.AssemblyInfo.cs
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.RazorTargetAssemblyInfo.cache
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.csproj.CopyComplete
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.dll
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.pdb
+D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.MvcApplicationPartsAssemblyInfo.cache

@@ -49,6 +49,13 @@ namespace OSA.Api
             {
                 c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:4200"));
             });
+            services.AddCors(o => o.AddPolicy("AllowOrigin", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
 
 
         }
@@ -75,6 +82,8 @@ namespace OSA.Api
             app.UseCors(options => options.AllowAnyOrigin());
 
             app.UseCors(options => options.WithOrigins("https://localhost:4200"));
+
+            app.UseCors("AllowOrigin");
 
         }
     }

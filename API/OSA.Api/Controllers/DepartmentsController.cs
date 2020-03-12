@@ -27,7 +27,7 @@ namespace OSA.Api.Controllers
 
         // GET: api/Departments
         [HttpGet]
-        [EnableCors("AllowOrigin")]
+        //[EnableCors("AllowOrigin")]
         public ActionResult<List<Department>> GetDepartments()
         {
             var result = _departmentRepository.GetAll();
