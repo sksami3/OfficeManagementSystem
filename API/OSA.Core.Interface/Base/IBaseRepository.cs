@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace OSA.Core.Interface.Base
 {
@@ -8,8 +9,8 @@ namespace OSA.Core.Interface.Base
     {
         List<T> GetAll();
         bool Insert(T entity);
-        bool Update(T entity);
+        Task<bool> Update(T entity);
         bool Delete(T entity);
-        T FindById(long Id);
+        Task<T> FindById(long Id);
     }
 }
