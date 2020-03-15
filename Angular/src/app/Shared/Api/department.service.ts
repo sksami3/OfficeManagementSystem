@@ -21,4 +21,8 @@ export class DepartmentService {
   getById(Id : number) : Observable<Department>{
     return this.http.get<Department>(`${this.DepartmetAPI}/${Id}`);
   }
+
+  edit(department : Department) : Observable<any>{
+    return this.http.put(`${this.DepartmetAPI}/${department.Id}`,department);
+  }
 }
