@@ -36,16 +36,18 @@ namespace OSA.Api.Controllers
 
         // GET: api/Departments/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Department>> GetDepartment(long id)
+        public async Task<Department> GetDepartment(long id)
         {
-            var department = await _context.Departments.FindAsync(id);
+            Task<Department> department = _departmentRepository.FindById(id);
 
-            if (department == null)
+            Department dept = await department;
+
+            if (dept == null)
             {
-                return NotFound();
+                return null;
             }
 
-            return department;
+            return dept;
         }
 
         // PUT: api/Departments/5
@@ -54,16 +56,18 @@ namespace OSA.Api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDepartment(long id, Department department)
         {
+            bool isSuccess = false;
             if (id != department.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(department).State = EntityState.Modified;
-
+            //_context.Entry(department).State = EntityState.Modified;
             try
             {
-                await _context.SaveChangesAsync();
+                Task<bool> result = _departmentRepository.Update(department);
+                isSuccess = await result;
+                //await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -76,8 +80,12 @@ namespace OSA.Api.Controllers
                     throw;
                 }
             }
-
-            return NoContent();
+            if (isSuccess)
+            {
+                Task<Department> dept = GetDepartment(id);
+                return Ok(await dept);
+            }
+            return NotFound();   
         }
 
         // POST: api/Departments

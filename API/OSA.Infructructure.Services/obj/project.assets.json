@@ -5550,7 +5550,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\samiur.rahman\\.nuget\\packages\\": {}
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -5558,11 +5559,14 @@
       "projectUniqueName": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructructure.Services\\OSA.Infructructure.Services.csproj",
       "projectName": "OSA.Infructructure.Services",
       "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructructure.Services\\OSA.Infructructure.Services.csproj",
-      "packagesPath": "C:\\Users\\samiur.rahman\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
       "outputPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructructure.Services\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\samiur.rahman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

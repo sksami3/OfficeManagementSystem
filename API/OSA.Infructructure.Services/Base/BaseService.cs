@@ -28,9 +28,9 @@ namespace OSA.Infructructure.Services.Base
             throw new NotImplementedException();
         }
 
-        public T FindById(long Id)
+        public async Task<T> FindById(long Id)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<T>().FindAsync(Id);
         }
 
         public Task<List<T>> GetAll()
@@ -61,9 +61,13 @@ namespace OSA.Infructructure.Services.Base
             return true;
         }
 
-        public bool Update(T entity)
+        public async Task<bool> Update(T entity)
         {
-            throw new NotImplementedException();
+            entity.UpdatedDate = DateTime.Now;
+            _DbContext.Entry(entity).State = EntityState.Modified;
+            await _DbContext.SaveChangesAsync();
+
+            return true;
         }
 
         List<T> IBaseRepository<T>.GetAll()
