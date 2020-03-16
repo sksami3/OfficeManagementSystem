@@ -7,17 +7,47 @@ import { DepartmentListComponent } from './Department/department-list/department
 import { DepartmentService } from './Shared/Api/department.service';
 import { DepartmentEditComponent } from './Department/department-edit/department-edit.component';
 import { DepartmentHeaderComponent } from './Department/department-header/department-header.component';
+import { PageNotFoundComponent } from './Department/page-not-found/page-not-found.component';
+import { HomeComponent } from './Home/home/home.component';
+// adding rout
+import { RouterModule, Routes } from '@angular/router';
+
+
+const appRoutes: Routes = 
+[
+  { 
+    path: '',
+     component: HomeComponent 
+  },
+  { 
+    path: 'api/departments',      
+    component: DepartmentListComponent,
+    data: { title: 'Heroes List' } 
+  },
+  {
+    path: 'api/EditDepartment/:id',
+    component: DepartmentEditComponent
+    
+  },
+  
+  { path: '**', component: PageNotFoundComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     DepartmentListComponent,
     DepartmentEditComponent,
-    DepartmentHeaderComponent
+    DepartmentHeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   providers: [DepartmentService],
   bootstrap: [AppComponent]
