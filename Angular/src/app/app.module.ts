@@ -9,6 +9,7 @@ import { DepartmentEditComponent } from './Department/department-edit/department
 import { DepartmentHeaderComponent } from './Department/department-header/department-header.component';
 import { PageNotFoundComponent } from './Department/page-not-found/page-not-found.component';
 import { HomeComponent } from './Home/home/home.component';
+import {MatTableModule} from '@angular/material/table';
 // adding rout
 import { RouterModule, Routes } from '@angular/router';
 
@@ -47,7 +48,8 @@ const appRoutes: Routes =
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    )
+    ),
+    MatTableModule 
   ],
   providers: [DepartmentService],
   bootstrap: [AppComponent]
