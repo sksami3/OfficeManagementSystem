@@ -16,7 +16,7 @@ export class DepartmentListComponent implements OnInit {
       //this.departmetnList = departmentServive.getAll().subscribe(res=>this.departmetnList=res);
    }
 
-   columnsToDisplay = ['name'];
+   columnsToDisplay = ['id','name','actions'];
 
   ngOnInit(): void {
     console.log("ngOnInit");
