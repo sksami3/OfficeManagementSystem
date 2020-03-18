@@ -11,7 +11,8 @@ export class DepartmentService {
 
   constructor(private http : HttpClient) { }
 
-  public API = 'https://192.168.0.109:44305/api';
+  // public API = 'https://192.168.0.109:44305/api';
+  public API = 'https://localhost:44370/api';
   public DepartmetAPI = `${this.API}/Departments`;
 
   getAll() : Observable<Department[]>{

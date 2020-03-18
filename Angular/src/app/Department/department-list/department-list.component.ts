@@ -19,9 +19,9 @@ export class DepartmentListComponent implements OnInit {
 
    columnsToDisplay = ['id','name','actions'];
 
-   editDepartment(){
-     console.log("Edit department");
-      this.router.navigate(['']);
+   editDepartment(id : number){
+     console.log("Department Number:"+ id);
+      this.router.navigate(['api/EditDepartment/'+id]);
     }
 
   ngOnInit(): void {
