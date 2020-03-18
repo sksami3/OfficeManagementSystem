@@ -40,15 +40,15 @@ namespace OSA.Api
             services.AddControllers().AddNewtonsoftJson();
 
             //CROS
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("foo",
-            //    builder =>
-            //    {
-            //        // Not a permanent solution, but just trying to isolate the problem
-            //        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-            //    });
-            //});
+            services.AddCors(options =>
+            {
+                options.AddPolicy("foo",
+                builder =>
+                {
+                    // Not a permanent solution, but just trying to isolate the problem
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
 
             services.AddControllers();
 
