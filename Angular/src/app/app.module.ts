@@ -10,6 +10,7 @@ import { DepartmentHeaderComponent } from './Department/department-header/depart
 import { PageNotFoundComponent } from './Department/page-not-found/page-not-found.component';
 import { HomeComponent } from './Home/home/home.component';
 import {MatTableModule} from '@angular/material/table';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // adding rout
 import { RouterModule, Routes } from '@angular/router';
 
@@ -40,7 +41,7 @@ const appRoutes: Routes =
     DepartmentListComponent,
     DepartmentEditComponent,
     DepartmentHeaderComponent,
-    HomeComponent
+    HomeComponent   
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,9 @@ const appRoutes: Routes =
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
-    MatTableModule 
+    MatTableModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DepartmentService],
   bootstrap: [AppComponent]
