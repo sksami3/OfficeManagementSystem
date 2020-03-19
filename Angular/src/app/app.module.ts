@@ -13,6 +13,7 @@ import {MatTableModule} from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // adding rout
 import { RouterModule, Routes } from '@angular/router';
+import { DepartmentPostComponent } from './Department/department-post/department-post.component';
 
 
 const appRoutes: Routes = 
@@ -31,6 +32,11 @@ const appRoutes: Routes =
     component: DepartmentEditComponent
     
   },
+  {
+    path: 'api/PostDepartment',
+    component: DepartmentPostComponent
+    
+  },
   
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -41,7 +47,8 @@ const appRoutes: Routes =
     DepartmentListComponent,
     DepartmentEditComponent,
     DepartmentHeaderComponent,
-    HomeComponent   
+    HomeComponent,
+    DepartmentPostComponent   
   ],
   imports: [
     BrowserModule,

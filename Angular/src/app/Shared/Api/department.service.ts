@@ -26,4 +26,11 @@ export class DepartmentService {
   edit(department : Department) : Observable<any>{
     return this.http.put(`${this.DepartmetAPI}/${department.Id}`,department);
   }
+
+  Insert(department : Department) : Observable<any>{
+    if(department){
+      console.log('In Insert method');
+      return this.http.post(`${this.DepartmetAPI}/${department.Id}`,department);
+    }
+  }
 }

@@ -1,0 +1,12 @@
+<form #departmentSubmitForm="ngForm" (ngSubmit)="save(departmentSubmitForm.value)">
+    <div class="form-group">
+        <label id="departmentName">Department Name</label>
+        <input required minlength="3" maxlength="10" [ngModel] name="departmentName" #departmentName="ngModel" type="text" id="departmentName" class="form-control">
+        <div class="alert alert-danger" *ngIf="departmentName.touched && !departmentName.valid">
+            <div *ngIf="departmentName.errors.required">Department Name Can't be null</div>
+            <div *ngIf="departmentName.errors.minlength">Minimum length is {{departmentName.errors.minlength.requiredLength}}</div>
+            <div *ngIf="departmentName.errors.maxlength">Maximum length is 10</div>
+        </div>
+    </div>
+    <button class="btn btn-primary">Submit</button>
+</form>
