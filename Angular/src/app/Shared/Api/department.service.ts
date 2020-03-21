@@ -24,6 +24,7 @@ export class DepartmentService {
   }
 
   edit(department : Department) : Observable<any>{
+    console.log('On edit');
     return this.http.put(`${this.DepartmetAPI}/${department.Id}`,department);
   }
 
@@ -31,6 +32,13 @@ export class DepartmentService {
     if(department){
       console.log('In Insert method');
       return this.http.post(`${this.DepartmetAPI}/`,department);
+    }
+  }
+
+  Delete(id : number) : Observable<any>{
+    if(id){
+      console.log('In delte method');
+      return this.http.delete(`${this.DepartmetAPI}/${id}`);
     }
   }
 }

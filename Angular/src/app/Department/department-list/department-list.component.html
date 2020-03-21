@@ -18,12 +18,18 @@
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="actions">
+    <ng-container matColumnDef="edit">
         <th mat-header-cell *matHeaderCellDef> edit </th>
-        <!-- <td mat-cell *matCellDef="let element"><i class="material-icons">delete</i> -->
         <button mat-cell *matCellDef="let element" value="Edit" (click)="editDepartment(element.id)">Edit</button>
-        <!-- (click)="delete()" -->
+
     </ng-container>
+    <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef> delete </th>
+
+        <button mat-cell *matCellDef="let element" value="Delete" (click)="deleteDepartment(element.id)">Delete</button>
+
+    </ng-container>
+
 
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
     <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
