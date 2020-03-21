@@ -36,16 +36,18 @@ namespace OSA.Api.Controllers
 
         // GET: api/Departments/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Department>> GetDepartment(long id)
+        public async Task<Department> GetDepartment(long id)
         {
-            var department = await _context.Departments.FindAsync(id);
+            Task<Department> department = _departmentRepository.FindById(id);
 
-            if (department == null)
+            Department dept = await department;
+
+            if (dept == null)
             {
-                return NotFound();
+                return null;
             }
 
-            return department;
+            return dept;
         }
 
         // PUT: api/Departments/5
@@ -54,16 +56,22 @@ namespace OSA.Api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDepartment(long id, Department department)
         {
+            Department departmentFromDb;
+            Task<Department> d = _departmentRepository.FindById(id);
+            departmentFromDb = await d;
+            departmentFromDb.Name = department.Name;
+            bool isSuccess = false;
             if (id != department.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(department).State = EntityState.Modified;
-
+            //_context.Entry(department).State = EntityState.Modified;
             try
             {
-                await _context.SaveChangesAsync();
+                Task<bool> result = _departmentRepository.Update(departmentFromDb);
+                isSuccess = await result;
+                //await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -76,8 +84,11 @@ namespace OSA.Api.Controllers
                     throw;
                 }
             }
-
-            return NoContent();
+            if (isSuccess)
+            {
+                return Ok(departmentFromDb);
+            }
+            return NotFound();
         }
 
         // POST: api/Departments
@@ -97,16 +108,18 @@ namespace OSA.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Department>> DeleteDepartment(long id)
         {
-            var department = await _context.Departments.FindAsync(id);
+            var department = await _departmentRepository.FindById(id);
             if (department == null)
             {
                 return NotFound();
             }
 
-            _context.Departments.Remove(department);
-            await _context.SaveChangesAsync();
+            bool result = _departmentRepository.Delete(department);
 
-            return department;
+            if (result)
+                return department;
+            else
+                return StatusCode(500);
         }
 
         private bool DepartmentExists(long id)

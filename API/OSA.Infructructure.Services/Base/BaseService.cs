@@ -24,13 +24,23 @@ namespace OSA.Infructructure.Services.Base
         }
         public bool Delete(T entity)
         {
-
-            throw new NotImplementedException();
+            try
+            {
+                //_innerDB.Remove(entity);
+                _DbContext.Entry(entity).State = EntityState.Deleted;
+                _DbContext.SaveChangesAsync();
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+                throw e;
+            }
         }
 
-        public T FindById(long Id)
+        public async Task<T> FindById(long Id)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<T>().FindAsync(Id);
         }
 
         public Task<List<T>> GetAll()
@@ -61,9 +71,13 @@ namespace OSA.Infructructure.Services.Base
             return true;
         }
 
-        public bool Update(T entity)
+        public async Task<bool> Update(T entity)
         {
-            throw new NotImplementedException();
+            entity.UpdatedDate = DateTime.Now;
+            _DbContext.Entry(entity).State = EntityState.Modified;
+            await _DbContext.SaveChangesAsync();
+
+            return true;
         }
 
         List<T> IBaseRepository<T>.GetAll()

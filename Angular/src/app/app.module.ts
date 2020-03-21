@@ -5,15 +5,61 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DepartmentListComponent } from './Department/department-list/department-list.component';
 import { DepartmentService } from './Shared/Api/department.service';
+import { DepartmentEditComponent } from './Department/department-edit/department-edit.component';
+import { DepartmentHeaderComponent } from './Department/department-header/department-header.component';
+import { PageNotFoundComponent } from './Department/page-not-found/page-not-found.component';
+import { HomeComponent } from './Home/home/home.component';
+import {MatTableModule} from '@angular/material/table';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// adding rout
+import { RouterModule, Routes } from '@angular/router';
+import { DepartmentPostComponent } from './Department/department-post/department-post.component';
+
+
+const appRoutes: Routes = 
+[
+  { 
+    path: '',
+     component: HomeComponent 
+  },
+  { 
+    path: 'api/departments',      
+    component: DepartmentListComponent,
+    data: { title: 'Heroes List' } 
+  },
+  {
+    path: 'api/EditDepartment/:id',
+    component: DepartmentEditComponent
+    
+  },
+  {
+    path: 'api/PostDepartment',
+    component: DepartmentPostComponent
+    
+  },
+  
+  { path: '**', component: PageNotFoundComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    DepartmentListComponent
+    DepartmentListComponent,
+    DepartmentEditComponent,
+    DepartmentHeaderComponent,
+    HomeComponent,
+    DepartmentPostComponent   
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    ),
+    MatTableModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DepartmentService],
   bootstrap: [AppComponent]
