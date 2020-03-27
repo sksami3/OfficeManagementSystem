@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // adding rout
 import { RouterModule, Routes } from '@angular/router';
 import { DepartmentPostComponent } from './Department/department-post/department-post.component';
+import { DepartmentSidebarComponent } from './Department/department-sidebar/department-sidebar.component';
 
 
 const appRoutes: Routes = 
@@ -48,7 +49,8 @@ const appRoutes: Routes =
     DepartmentEditComponent,
     DepartmentHeaderComponent,
     HomeComponent,
-    DepartmentPostComponent   
+    DepartmentPostComponent,
+    DepartmentSidebarComponent   
   ],
   imports: [
     BrowserModule,
