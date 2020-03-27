@@ -24,8 +24,18 @@ namespace OSA.Infructructure.Services.Base
         }
         public bool Delete(T entity)
         {
-
-            throw new NotImplementedException();
+            try
+            {
+                //_innerDB.Remove(entity);
+                _DbContext.Entry(entity).State = EntityState.Deleted;
+                _DbContext.SaveChangesAsync();
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+                throw e;
+            }
         }
 
         public async Task<T> FindById(long Id)

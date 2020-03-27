@@ -17,7 +17,7 @@ namespace OSA.Api.Controllers
     //[EnableCors("AllowOrigin")]
     public class DepartmentsController : ControllerBase
     {
-        private readonly OfficeAttendenceSystemDbContext _context;
+        //private readonly OfficeAttendenceSystemDbContext _context;
         private readonly IDepartmentRepository _departmentRepository;
 
         public DepartmentsController(IDepartmentRepository departmentRepository)
@@ -56,6 +56,10 @@ namespace OSA.Api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDepartment(long id, Department department)
         {
+            Department departmentFromDb;
+            Task<Department> d = _departmentRepository.FindById(id);
+            departmentFromDb = await d;
+            departmentFromDb.Name = department.Name;
             bool isSuccess = false;
             if (id != department.Id)
             {
@@ -65,13 +69,13 @@ namespace OSA.Api.Controllers
             //_context.Entry(department).State = EntityState.Modified;
             try
             {
-                Task<bool> result = _departmentRepository.Update(department);
+                Task<bool> result = _departmentRepository.Update(departmentFromDb);
                 isSuccess = await result;
                 //await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DepartmentExists(id))
+                if (_departmentRepository.FindById(id) != null)
                 {
                     return NotFound();
                 }
@@ -82,10 +86,9 @@ namespace OSA.Api.Controllers
             }
             if (isSuccess)
             {
-                Task<Department> dept = GetDepartment(id);
-                return Ok(await dept);
+                return Ok(departmentFromDb);
             }
-            return NotFound();   
+            return NotFound();
         }
 
         // POST: api/Departments
@@ -105,21 +108,23 @@ namespace OSA.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Department>> DeleteDepartment(long id)
         {
-            var department = await _context.Departments.FindAsync(id);
+            var department = await _departmentRepository.FindById(id);
             if (department == null)
             {
                 return NotFound();
             }
 
-            _context.Departments.Remove(department);
-            await _context.SaveChangesAsync();
+            bool result = _departmentRepository.Delete(department);
 
-            return department;
+            if (result)
+                return department;
+            else
+                return StatusCode(500);
         }
 
-        private bool DepartmentExists(long id)
-        {
-            return _context.Departments.Any(e => e.Id == id);
-        }
+        //private bool DepartmentExists(long id)
+        //{
+        //    return _context.Departments.Any(e => e.Id == id);
+        //}
     }
 }
