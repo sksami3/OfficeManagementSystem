@@ -3,6 +3,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import { Department } from 'src/app/Shared/Models/Department';
 import { DepartmentService } from 'src/app/Shared/Api/department.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotificationService } from 'src/app/Shared/NotificationService/notification.service';
 
 @Component({
   selector: 'app-department-edit',
@@ -16,7 +17,7 @@ export class DepartmentEditComponent implements OnInit {
   departmentEditForm: FormGroup;
   id : number;
 
-  constructor(private formBuilder: FormBuilder,private route : ActivatedRoute, private _departmentService : DepartmentService) { 
+  constructor(private formBuilder: FormBuilder,private route : ActivatedRoute, private _departmentService : DepartmentService,private notifyService:NotificationService) { 
 
   }
 
@@ -63,7 +64,7 @@ export class DepartmentEditComponent implements OnInit {
      if(this.department.Id == this.id){
        this._departmentService.edit(this.department).subscribe(
         result => {
-          console.log(result);
+          this.notifyService.showInfo("Department updated successfully !!", "OAS")
           //this.redirectToList();
         }, error => console.error(error))
      }

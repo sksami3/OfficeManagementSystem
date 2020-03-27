@@ -15,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { DepartmentPostComponent } from './Department/department-post/department-post.component';
 import { DepartmentSidebarComponent } from './Department/department-sidebar/department-sidebar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 const appRoutes: Routes = 
@@ -24,17 +26,17 @@ const appRoutes: Routes =
      component: HomeComponent 
   },
   { 
-    path: 'api/departments',      
+    path: 'departments',      
     component: DepartmentListComponent,
     data: { title: 'Heroes List' } 
   },
   {
-    path: 'api/EditDepartment/:id',
+    path: 'EditDepartment/:id',
     component: DepartmentEditComponent
     
   },
   {
-    path: 'api/PostDepartment',
+    path: 'PostDepartment',
     component: DepartmentPostComponent
     
   },
@@ -61,7 +63,10 @@ const appRoutes: Routes =
     ),
     MatTableModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [DepartmentService],
   bootstrap: [AppComponent]

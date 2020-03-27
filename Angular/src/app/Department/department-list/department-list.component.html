@@ -6,12 +6,9 @@
     <li *ngFor="let d of departmetnList">{{d.name+ " Serial:" +" "+ d.id}}</li>
 </ol> -->
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid col-md-6" style="margin-right: 160px;">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-
-
     <!-- /.container-fluid -->
     <table mat-table [dataSource]="departmetnList">
         <!-- serial Column -->

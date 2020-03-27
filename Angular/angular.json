@@ -26,7 +26,8 @@
                         "styles": [
                             "src/styles.css",
                             "src/assets/css/sb-admin-2.min.css",
-                            "src/assets/vendor/fontawesome-free/css/all.min.css"
+                            "src/assets/vendor/fontawesome-free/css/all.min.css",
+                            "node_modules/ngx-toastr/toastr.css"
                         ],
                         "scripts": [
                             "src/assets/vendor/jquery/jquery.min.js",

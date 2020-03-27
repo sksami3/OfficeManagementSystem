@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DepartmentService } from 'src/app/Shared/Api/department.service';
 import { Department } from 'src/app/Shared/Models/Department';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/Shared/NotificationService/notification.service';
+
 
 @Component({
   selector: 'app-department-list',
@@ -12,7 +14,7 @@ export class DepartmentListComponent implements OnInit {
 
   Title = "Department List";
   departmetnList: any= Array<Department>();
-  constructor(private departmentServive : DepartmentService, private router: Router) {
+  constructor(private departmentServive : DepartmentService, private router: Router, private notifyService: NotificationService) {
       console.log("In Constructor");
       //this.departmetnList = departmentServive.getAll().subscribe(res=>this.departmetnList=res);
    }
@@ -20,7 +22,7 @@ export class DepartmentListComponent implements OnInit {
    columnsToDisplay = ['id','name','edit','delete'];
 
    editDepartment(id : number){
-      this.router.navigate(['api/EditDepartment/'+id]);
+      this.router.navigate(['/EditDepartment/'+id]);
       
     }
 
@@ -44,11 +46,28 @@ export class DepartmentListComponent implements OnInit {
         //   }
         // }
         // )
-        this.departmentServive.Delete(id).subscribe(data => { console.log(data),error => console.error(error)
+        this.departmentServive.Delete(id).subscribe(data => 
+          {
+           this.notifyService.showError("Department deleted successfully !!", "OAS")
+          //  setTimeout(() => 
+          //   {
+          //       this.router.navigate(['/departments']);
+          //   },
+          //   5000)
+          this.refresh()
+          
+        ,
+        error => console.error(error)
         })
       }
 
       
+    }
+
+    private refresh() {
+      this.departmentServive.getAll().subscribe( data => {
+        this.departmetnList = data;
+    });
     }
 
   ngOnInit(): void {
