@@ -26,7 +26,7 @@ export class DepartmentListComponent implements OnInit {
       
     }
 
-    deleteDepartment(id : number){
+    async deleteDepartment(id : number){
       console.log('delete id: '+id);
       if(id){
         // this.departmentServive.getById(id).subscribe((data: any) => 
@@ -46,28 +46,34 @@ export class DepartmentListComponent implements OnInit {
         //   }
         // }
         // )
-        this.departmentServive.Delete(id).subscribe(data => 
-          {
-           this.notifyService.showError("Department deleted successfully !!", "OAS")
-          //  setTimeout(() => 
-          //   {
-          //       this.router.navigate(['/departments']);
-          //   },
-          //   5000)
-          this.refresh()
-          
+        await this.departmentServive.Delete(id).subscribe(data => 
+        {
+          //  this.notifyService.showError("Department deleted successfully !!", "OAS")
+          //  this.refresh()
+          this.RefreshWithMessage("Department deleted successfully !!",async () =>{
+           await this.refresh();  
+        })
         ,
-        error => console.error(error)
+        error => this.notifyService.showError(error, "OAS");
         })
       }
-
-      
+      else{
+        this.notifyService.showWarning(id+' not found', "OAS");
+      }
+    }
+    private async refresh(){
+      await this.departmentServive.getAll().subscribe( data => {
+        this.departmetnList = data;
+      });
     }
 
-    private refresh() {
-      this.departmentServive.getAll().subscribe( data => {
-        this.departmetnList = data;
-    });
+    private RefreshWithMessage(message,callback){
+      this.notifyService.showError(message, "OAS");
+      if (typeof callback == "function") {
+        console.log('in callback');
+        callback();
+      }
+      
     }
 
   ngOnInit(): void {
