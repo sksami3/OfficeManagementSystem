@@ -16,7 +16,14 @@ export class DepartmentPostComponent implements OnInit,OnDestroy {
   department : Department;
 
   constructor(private departmentService : DepartmentService, private router : Router, private route: ActivatedRoute, private notifyService: NotificationService ) {
+    this.router.errorHandler = (error: any) => {
+      console.log("error from Dept post: "+error);
+      this.router.navigate(['/departments']); // or redirect to default route
+    }
   }
+  // public goToList(){
+  //   this.router.navigate(['/departments']); 
+  // }
 
   save(form : any){
     // var data=form.fields;

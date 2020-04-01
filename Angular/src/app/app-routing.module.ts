@@ -9,39 +9,48 @@ import { DepartmentEditComponent } from './Department/department-edit/department
 import { DepartmentHeaderComponent } from './Department/department-header/department-header.component';
 import { PageNotFoundComponent } from './Department/page-not-found/page-not-found.component';
 import { HomeComponent } from './Home/home/home.component';
-import {MatTableModule} from '@angular/material/table';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // adding rout
 import { RouterModule, Routes } from '@angular/router';
 import { DepartmentPostComponent } from './Department/department-post/department-post.component';
 import { DepartmentSidebarComponent } from './Department/department-sidebar/department-sidebar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
-import { AppRoutingModule } from './app-routing.module';
+
+
+const appRoutes: Routes = 
+[
+  { 
+    path: '',
+     component: HomeComponent 
+  },
+  { 
+    path: 'departments',      
+    component: DepartmentListComponent,
+  },
+  {
+    path: 'EditDepartment/:id',
+    component: DepartmentEditComponent
+    
+  },
+  {
+    path: 'PostDepartment',
+    component: DepartmentPostComponent
+    
+  },
+  
+  { path: '**', component: PageNotFoundComponent }
+];
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DepartmentListComponent,
-    DepartmentEditComponent,
-    DepartmentHeaderComponent,
-    HomeComponent,
-    DepartmentPostComponent,
-    DepartmentSidebarComponent   
-  ],
+  declarations: [],
   imports: [
-    BrowserModule,
-    HttpClientModule,
-    MatTableModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-    AppRoutingModule
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
-  providers: [DepartmentService],
-  bootstrap: [AppComponent]
+  exports: [
+    RouterModule
+  ]
 })
-export class AppModule { }
+export class AppRoutingModule { }
