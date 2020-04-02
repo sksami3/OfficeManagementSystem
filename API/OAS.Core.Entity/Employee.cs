@@ -10,6 +10,6 @@ namespace OAS.Core.Entity
     {
         public string Name { get; set; }
         [Required]
-        public Department Department { get; set; }
+        public virtual Department Department { get; set; }
     }
 }

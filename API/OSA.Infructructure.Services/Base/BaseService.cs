@@ -49,15 +49,17 @@ namespace OSA.Infructructure.Services.Base
         {
             try
             {
-                Type typeParameterType = typeof(T);               
+                //Type typeParameterType = typeof(T);               
                 _innerDB = _DbContext.Set<T>();
 
-                List<T> result = new List<T>();
+                //List<T> result = new List<T>();
 
-                if (typeParameterType.Name == "Department")
-                    result = await _innerDB.Where(x => !x.IsDelete).Include("Employees").ToListAsync();
-                else
-                    result = await _innerDB.Where(x => !x.IsDelete).Include("Department").ToListAsync();
+                //if (typeParameterType.Name == "Department")
+                //    result = await _innerDB.Where(x => !x.IsDelete).Include("Employees").ToListAsync();
+                //else
+                //    result = await _innerDB.Where(x => !x.IsDelete).Include("Department").ToListAsync();
+
+                var result = await _innerDB.Where(x => !x.IsDelete).ToListAsync();
 
                 return result;
                 //throw new NotImplementedException();

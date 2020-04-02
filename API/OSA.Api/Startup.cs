@@ -59,6 +59,11 @@ namespace OSA.Api
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             });
 
+            //services.AddDbContextPool<OfficeAttendenceSystemDbContext>(options =>
+            // options.UseLazyLoadingProxies()
+            // .UseSqlServer(Configuration.GetConnectionString("OfficeAttendenceSystemDbContext")));
+             //.UseSqlServer("OfficeAttendenceSystemDbContext"));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

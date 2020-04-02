@@ -343,4 +343,6 @@ D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.Ra
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.csproj.CopyComplete
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.dll
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.pdb
+D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\Castle.Core.dll
+D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.MvcApplicationPartsAssemblyInfo.cache

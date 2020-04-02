@@ -25,6 +25,8 @@ namespace OSA.Infructure.Context.OASDbContext
                    .SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
                 var connectionString = configuration.GetConnectionString("OfficeAttendenceSystemDbContext");
                 optionsBuilder.UseSqlServer(connectionString);
+
+                optionsBuilder.UseLazyLoadingProxies();
             }
         }
     }
