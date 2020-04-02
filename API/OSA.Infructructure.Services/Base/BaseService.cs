@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
+using System.Collections;
 
 namespace OSA.Infructructure.Services.Base
 {
@@ -43,12 +45,19 @@ namespace OSA.Infructructure.Services.Base
             return await _DbContext.Set<T>().FindAsync(Id);
         }
 
-        public Task<List<T>> GetAll()
+        public async Task<List<T>> GetAll()
         {
             try
             {
+                Type typeParameterType = typeof(T);               
                 _innerDB = _DbContext.Set<T>();
-                var result = _innerDB.ToListAsync();
+
+                List<T> result = new List<T>();
+
+                if (typeParameterType.Name == "Department")
+                    result = await _innerDB.Where(x => !x.IsDelete).Include("Employees").ToListAsync();
+                else
+                    result = await _innerDB.Where(x => !x.IsDelete).Include("Department").ToListAsync();
 
                 return result;
                 //throw new NotImplementedException();
@@ -60,14 +69,14 @@ namespace OSA.Infructructure.Services.Base
             return null;
         }
 
-        public bool Insert(T entity)
+        public async Task<bool> Insert(T entity)
         {
             entity.CreateDate = DateTime.Now;
             entity.UpdatedDate = DateTime.Now;
             entity.IsDelete = false;
 
             var x = _DbContext.Set<T>().Add(entity);
-            _DbContext.SaveChangesAsync();
+            await _DbContext.SaveChangesAsync();
             return true;
         }
 

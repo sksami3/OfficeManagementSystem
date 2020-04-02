@@ -8,6 +8,6 @@ namespace OAS.Core.Entity
     public class Department : BaseModel
     {
         public string Name { get; set; }
-        public virtual List<Employee> Employees { get; set; }
+        public List<Employee> Employees { get; set; }
     }
 }
