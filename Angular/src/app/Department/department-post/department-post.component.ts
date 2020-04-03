@@ -3,6 +3,7 @@ import { Department } from 'src/app/Shared/Models/Department';
 import { DepartmentService } from 'src/app/Shared/Api/department.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { NotificationService } from 'src/app/Shared/NotificationService/notification.service';
 
 @Component({
   selector: 'app-department-post',
@@ -14,8 +15,15 @@ export class DepartmentPostComponent implements OnInit,OnDestroy {
   sub : Subscription;
   department : Department;
 
-  constructor(private departmentService : DepartmentService, private router : Router, private route: ActivatedRoute) {
+  constructor(private departmentService : DepartmentService, private router : Router, private route: ActivatedRoute, private notifyService: NotificationService ) {
+    this.router.errorHandler = (error: any) => {
+      console.log("error from Dept post: "+error);
+      this.router.navigate(['/departments']); // or redirect to default route
+    }
   }
+  // public goToList(){
+  //   this.router.navigate(['/departments']); 
+  // }
 
   save(form : any){
     // var data=form.fields;
@@ -25,8 +33,9 @@ export class DepartmentPostComponent implements OnInit,OnDestroy {
     //  this.department.IsDelete = false;     
       this.departmentService.Insert(this.department).subscribe(
         result => {
-          console.log('In result');
-          this.redirectToList();
+          this.notifyService.showSuccess("Department added successfully !!", "OAS")
+          form.resetForm();
+          
       }, error => console.error(error))
   }
 
@@ -41,7 +50,7 @@ export class DepartmentPostComponent implements OnInit,OnDestroy {
 
   redirectToList(){
     console.log('In redirectToList');
-    this.router.navigate(['api/departments'], {relativeTo: this.route});
+    this.router.navigate(['departments'], {relativeTo: this.route});
   }
 
 }

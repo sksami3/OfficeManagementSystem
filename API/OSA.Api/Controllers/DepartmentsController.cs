@@ -17,7 +17,7 @@ namespace OSA.Api.Controllers
     //[EnableCors("AllowOrigin")]
     public class DepartmentsController : ControllerBase
     {
-        private readonly OfficeAttendenceSystemDbContext _context;
+        //private readonly OfficeAttendenceSystemDbContext _context;
         private readonly IDepartmentRepository _departmentRepository;
 
         public DepartmentsController(IDepartmentRepository departmentRepository)
@@ -75,7 +75,7 @@ namespace OSA.Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DepartmentExists(id))
+                if (_departmentRepository.FindById(id) != null)
                 {
                     return NotFound();
                 }
@@ -122,9 +122,9 @@ namespace OSA.Api.Controllers
                 return StatusCode(500);
         }
 
-        private bool DepartmentExists(long id)
-        {
-            return _context.Departments.Any(e => e.Id == id);
-        }
+        //private bool DepartmentExists(long id)
+        //{
+        //    return _context.Departments.Any(e => e.Id == id);
+        //}
     }
 }

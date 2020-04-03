@@ -1,16 +1,21 @@
-<!-- <form #departmentEditForm="ngForm" (ngSubmit)="update(departmentEditForm.value)"> -->
-<form [formGroup]="departmentEditForm" (ngSubmit)="update(departmentEditForm.value)">
-    <div class="form-group">
-        <label ngFor="Name">Department Name</label>
-        <!-- <input required minlength="3" maxlength="10" [ngModel] name="Name" #Name="ngModel" type="text" id="Name" class="form-control"> -->
-        <!-- <input required minlength="3" maxlength="10" type="text" id="department.Name" name="department.Name" [(ngModel)]="department.Name" #Name="ngModel" class="form-control"> -->
-        <input type="text" class="form-control" formControlName="Name" ng-model="Name" required/>
-        <!-- <div class="alert alert-danger" *ngIf="departmentEditForm.Name.touched && !departmentEditForm.Name.valid">
+<div class="container-fluid col-md-6" style="margin-right: 160px;">
+    <!-- <form #departmentEditForm="ngForm" (ngSubmit)="update(departmentEditForm.value)"> -->
+    <form [formGroup]="departmentEditForm" (ngSubmit)="update(departmentEditForm.value)">
+        <div class="form-group">
+            <label ngFor="Name">Department Name</label>
+            <!-- <input required minlength="3" maxlength="10" [ngModel] name="Name" #Name="ngModel" type="text" id="Name" class="form-control"> -->
+            <!-- <input required minlength="3" maxlength="10" type="text" id="department.Name" name="department.Name" [(ngModel)]="department.Name" #Name="ngModel" class="form-control"> -->
+            <input type="text" class="form-control" formControlName="Name" ng-model="Name" required/>
+            <!-- <div class="alert alert-danger" *ngIf="departmentEditForm.Name.touched && !departmentEditForm.Name.valid">
             <div *ngIf="departmentEditForm.Name.errors.required">Department Name Can't be null</div>
             <div *ngIf="departmentEditForm.Name.errors.minlength">Minimum length is {{Name.errors.minlength.requiredLength}}</div>
             <div *ngIf="departmentEditForm.Name.errors.maxlength">Maximum length is 10</div>
         </div> -->
-        <input type="hidden" class="form-control" formControlName="Id" />
-    </div>
-    <button class="btn btn-primary">Submit</button>
-</form>
+            <input type="hidden" class="form-control" formControlName="Id" />
+        </div>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+
+
+</div>
+<a href="javascript: void(0);" [routerLink]="['/departments']">Go to List</a>

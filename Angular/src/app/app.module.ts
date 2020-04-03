@@ -14,32 +14,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // adding rout
 import { RouterModule, Routes } from '@angular/router';
 import { DepartmentPostComponent } from './Department/department-post/department-post.component';
+import { DepartmentSidebarComponent } from './Department/department-sidebar/department-sidebar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { AppRoutingModule } from './app-routing.module';
 
-
-const appRoutes: Routes = 
-[
-  { 
-    path: '',
-     component: HomeComponent 
-  },
-  { 
-    path: 'api/departments',      
-    component: DepartmentListComponent,
-    data: { title: 'Heroes List' } 
-  },
-  {
-    path: 'api/EditDepartment/:id',
-    component: DepartmentEditComponent
-    
-  },
-  {
-    path: 'api/PostDepartment',
-    component: DepartmentPostComponent
-    
-  },
-  
-  { path: '**', component: PageNotFoundComponent }
-];
 
 @NgModule({
   declarations: [
@@ -48,18 +27,19 @@ const appRoutes: Routes =
     DepartmentEditComponent,
     DepartmentHeaderComponent,
     HomeComponent,
-    DepartmentPostComponent   
+    DepartmentPostComponent,
+    DepartmentSidebarComponent   
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),
     MatTableModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [DepartmentService],
   bootstrap: [AppComponent]
