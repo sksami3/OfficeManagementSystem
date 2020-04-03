@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OSA.Infructure.Context.OASDbContext;
 
 namespace OSA.Infructure.Context.Migrations
 {
     [DbContext(typeof(OfficeAttendenceSystemDbContext))]
-    partial class OfficeAttendenceSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200403153225_some_column_added_in_employee_table")]
+    partial class some_column_added_in_employee_table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -25,7 +25,7 @@ namespace OSA.Api.Controllers
             this._employeeRepository = employeeRepository;
         }
         #endregion
-        
+
 
         // GET: api/Employees
         [HttpGet]
@@ -61,13 +61,12 @@ namespace OSA.Api.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(employee).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+                bool isEdited = await _employeeRepository.Update(employee);
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception e)
             {
                 if (!EmployeeExists(id))
                 {
@@ -75,7 +74,7 @@ namespace OSA.Api.Controllers
                 }
                 else
                 {
-                    throw;
+                    throw e;
                 }
             }
 
@@ -91,8 +90,10 @@ namespace OSA.Api.Controllers
             //_context.Employees.Add(employee);
             //await _context.SaveChangesAsync();
             bool isSuccess = await _employeeRepository.Insert(employee);
-
-            return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
+            if (isSuccess)
+                return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
+            else
+                return NoContent();
         }
 
         // DELETE: api/Employees/5
@@ -116,7 +117,10 @@ namespace OSA.Api.Controllers
 
         private bool EmployeeExists(long id)
         {
-            return _context.Employees.Any(e => e.Id == id);
+            if (_employeeRepository.FindById(id) == null)
+                return true;
+            else
+                return false;
         }
     }
 }
