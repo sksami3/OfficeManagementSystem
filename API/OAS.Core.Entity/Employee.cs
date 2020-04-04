@@ -17,6 +17,8 @@ namespace OAS.Core.Entity
         [Required]
         public DateTime JoiningDate { get; set; }
         [Required]
+        public DateTime DateOfBirth { get; set; }
+        [Required]
         public virtual Department Department { get; set; }
 
     }
