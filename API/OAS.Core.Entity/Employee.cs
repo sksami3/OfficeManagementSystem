@@ -20,6 +20,7 @@ namespace OAS.Core.Entity
         [Required]
         public DateTime DateOfBirth { get; set; }
         [ForeignKey("Department")]
+        [Required]
         public long DepartmentId { get; set; }
         public virtual Department Department { get; set; }
 
