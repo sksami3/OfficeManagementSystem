@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Transactions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,11 +19,13 @@ namespace OSA.Api.Controllers
         #region Delete Later
         private readonly OfficeAttendenceSystemDbContext _context;
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly IDepartmentRepository _departmentRepository;
 
-        public EmployeesController(OfficeAttendenceSystemDbContext context, IEmployeeRepository employeeRepository)
+        public EmployeesController(OfficeAttendenceSystemDbContext context, IEmployeeRepository employeeRepository, IDepartmentRepository departmentRepository)
         {
             _context = context;
             this._employeeRepository = employeeRepository;
+            this._departmentRepository = departmentRepository;
         }
         #endregion
 
@@ -60,7 +63,11 @@ namespace OSA.Api.Controllers
             {
                 return BadRequest();
             }
-
+            if (employee.Department != null && employee.Department.Id > 0)
+            {
+                employee.DepartmentId = employee.Department.Id;
+                employee.Department = null;//await _departmentRepository.FindById(employee.Department.Id);                
+            }
 
             try
             {
@@ -89,7 +96,25 @@ namespace OSA.Api.Controllers
         {
             //_context.Employees.Add(employee);
             //await _context.SaveChangesAsync();
-            bool isSuccess = await _employeeRepository.Insert(employee);
+            if(employee.Department != null && employee.Department.Id > 0 && employee.DepartmentId == 0)
+            {
+                employee.DepartmentId = employee.Department.Id;
+                employee.Department = null;//await _departmentRepository.FindById(employee.Department.Id);                
+            }
+            else if(employee.DepartmentId == 0)
+            {
+                return NoContent();
+            }
+            bool isSuccess = false;
+            try
+            {
+                isSuccess = await _employeeRepository.Insert(employee);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            
             if (isSuccess)
                 return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
             else
