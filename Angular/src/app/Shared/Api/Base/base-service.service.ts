@@ -3,42 +3,34 @@ import { IBaseRepository } from './ibase-repository';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Base } from '../../Models/Base';
+import { Component, OnInit } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+// @Injectable({
+//   providedIn: 'root'
+// })
 export class BaseService<T extends Base> implements IBaseRepository<T> {
 
-  constructor(private http : HttpClient)//,private e : T) 
+  constructor(private http : HttpClient,private URL : string) 
   { 
-
-  }
-  getById(Id: number) {
-    throw new Error("Method not implemented.");
-  }
-  edit(entity: T) {
-    throw new Error("Method not implemented.");
-  }
-  Insert(entity: T) {
-    throw new Error("Method not implemented.");
-  }
-  Delete(id: number) {
-    throw new Error("Method not implemented.");
+      console.log(URL);
   }
 
   getAll() : Observable<T[]>{
-    return this.http.get<T[]>('https://localhost:44370/api/Employees');
+    return this.http.get<T[]>(this.URL);
   }
-  // getById(Id: number) : Observable<T> {
-  //   return this.http.get<T>(`${this.e.URL}/${Id}`)
-  // }
-  // edit(entity: T) : Observable<any> {
-  //   return this.http.put(`${this.e.URL}/${entity.Id}`,entity);
-  // }
-  // Insert(entity: T) : Observable<any> {
-  //   return this.http.post(`${this.e.URL}`,entity)
-  // }
-  // Delete(id: number) : Observable<any> {
-  //   return this.http.delete(`${this.e.URL}/${id}`)
-  // }
+  getById(Id: number) : Observable<T> {
+    return this.http.get<T>(`${this.URL}/${Id}`)
+  }
+  edit(entity: T) : Observable<any> {
+    return this.http.put(`${this.URL}/${entity.Id}`,entity);
+  }
+  Insert(entity: T) : Observable<any> {
+    return this.http.post(`${this.URL}`,entity)
+  }
+  Delete(id: number) : Observable<any> {
+    return this.http.delete(`${this.URL}/${id}`)
+  }
+  ngOnInit(): void {
+    
+  }
 }

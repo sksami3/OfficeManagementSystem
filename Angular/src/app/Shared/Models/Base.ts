@@ -4,5 +4,5 @@ export class Base{
     CreateDate : Date;
     UpdatedDate : Date;
     IsDelete : false;
-    URL : string;
+    // URL : string;
 }
