@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OSA.Infructure.Context.OASDbContext;
 
 namespace OSA.Infructure.Context.Migrations
 {
     [DbContext(typeof(OfficeAttendenceSystemDbContext))]
-    partial class OfficeAttendenceSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200405080247_modelBuilder_changed")]
+    partial class modelBuilder_changed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,6 +47,9 @@ namespace OSA.Infructure.Context.Migrations
 
             modelBuilder.Entity("OAS.Core.Entity.Employee", b =>
                 {
+                    b.Property<long>("DepartmentId")
+                        .HasColumnType("bigint");
+
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
@@ -58,9 +63,6 @@ namespace OSA.Infructure.Context.Migrations
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
-
-                    b.Property<long>("DepartmentId")
-                        .HasColumnType("bigint");
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
@@ -78,9 +80,7 @@ namespace OSA.Infructure.Context.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("DepartmentId");
+                    b.HasKey("DepartmentId", "Id");
 
                     b.ToTable("Employees");
                 });

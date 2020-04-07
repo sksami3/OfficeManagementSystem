@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace OAS.Core.Entity
@@ -17,6 +18,10 @@ namespace OAS.Core.Entity
         [Required]
         public DateTime JoiningDate { get; set; }
         [Required]
+        public DateTime DateOfBirth { get; set; }
+        [ForeignKey("Department")]
+        [Required]
+        public long DepartmentId { get; set; }
         public virtual Department Department { get; set; }
 
     }
