@@ -16,10 +16,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { DepartmentPostComponent } from './Department/department-post/department-post.component';
 import { DepartmentSidebarComponent } from './Department/department-sidebar/department-sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
-import { TestThenDeleteComponent } from './Employee/TestThenDelete/test-then-delete/test-then-delete.component';
 import { EmployeePostComponent } from './Employee/employee-post/employee-post.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -31,7 +30,6 @@ import { EmployeePostComponent } from './Employee/employee-post/employee-post.co
     HomeComponent,
     DepartmentPostComponent,
     DepartmentSidebarComponent,
-    TestThenDeleteComponent,
     EmployeePostComponent   
   ],
   imports: [

@@ -1,1 +1,25 @@
-<p>employee-post works!</p>
+<app-department-header></app-department-header>
+<department-sidebar></department-sidebar>
+
+<div class="form-container empDiv col-md-6" id="empDiv">
+    <!--style="float: inline-start;" -->
+    <form [formGroup]="employeeForm" (ngSubmit)="AddEmployee(employeeForm.value)">
+        <div id="formEmp">
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4 control-label">Select Departmet: </label>
+                    <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
+                    <select class="form-control col-md-6" formControlName="departmentList">
+                        <option *ngFor="let d of deptnames" [ngValue]="d">
+                            {{d}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-gorup">
+                <input type="submit" class="button expanded" value="Submit Form" [disabled]="!employeeForm.valid">
+            </div>
+        </div>
+    </form>
+</div>
