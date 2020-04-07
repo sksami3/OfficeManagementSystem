@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { TestThenDeleteComponent } from './Employee/TestThenDelete/test-then-delete/test-then-delete.component';
+import { EmployeePostComponent } from './Employee/employee-post/employee-post.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { TestThenDeleteComponent } from './Employee/TestThenDelete/test-then-del
     HomeComponent,
     DepartmentPostComponent,
     DepartmentSidebarComponent,
-    TestThenDeleteComponent   
+    TestThenDeleteComponent,
+    EmployeePostComponent   
   ],
   imports: [
     BrowserModule,
