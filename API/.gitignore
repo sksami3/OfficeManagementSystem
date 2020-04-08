@@ -1,9 +1,10 @@
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
+*.cache
 
 /.vs/OfficeAttendenceSystem/v16/Server/sqlite3/db.lock
 /.vs/OfficeAttendenceSystem/v15/Server/sqlite3/db.lock
 /.vs
 /.vs/
-/API/OSA.Api/bin/Debug/netcoreapp3.1/
+/API/OSA.Api/bin/*

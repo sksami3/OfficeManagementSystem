@@ -9,16 +9,23 @@
                 <div class="row">
                     <label class="col-md-4 control-label">Select Departmet: </label>
                     <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
-                    <select class="form-control col-md-6" formControlName="departmentList">
-                        <option *ngFor="let d of deptnames" [ngValue]="d">
-                            {{d}}
+                    <select class="form-control col-md-6" formControlName="departmentList" (change)="onChange($event.target.value)">
+                        <option id="selectP" value="" [selected]="true">--Select Department--</option>
+                        <option *ngFor="let d of deptnames " [ngValue]="d.id ">
+                            {{d.name}}
                         </option>
                     </select>
+                    <span *ngIf="!employeeForm.controls['departmentList'].valid && (employeeForm.controls['departmentList'].touched || employeeForm.controls['departmentList'].dirty)" class="alert alert-danger">Must select department</span>
                 </div>
             </div>
+            <div class="form-group col-md-8" class="empInfoDiv " [@toggleHeight]="isShow ">
+                <fieldset class="border p-2 ">
+                    <legend class="w-auto ">Employee Information</legend>
+                </fieldset>
+            </div>
 
-            <div class="form-gorup">
-                <input type="submit" class="button expanded" value="Submit Form" [disabled]="!employeeForm.valid">
+            <div class="form-gorup ">
+                <input type="submit" type="button" value="Submit Form" [disabled]="!employeeForm.valid ">
             </div>
         </div>
     </form>
