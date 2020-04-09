@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './Department/page-not-found/page-not-foun
 import { HomeComponent } from './Home/home/home.component';
 import {MatTableModule} from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbDatepickerModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 // adding rout
 import { RouterModule, Routes } from '@angular/router';
 import { DepartmentPostComponent } from './Department/department-post/department-post.component';
@@ -41,7 +42,9 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    NgbDatepickerModule,
+    NgbTimepickerModule
   ],
   providers: [DepartmentService],
   bootstrap: [AppComponent]

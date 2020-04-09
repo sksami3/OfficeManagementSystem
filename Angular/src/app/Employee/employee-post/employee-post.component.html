@@ -44,16 +44,7 @@
                         <div class="row">
                             <label class="col-md-4 control-label">Contact Number: </label>
                             <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
-                            <input type="text" class="form-control col-md-6" formControlName="contactnumber" />
-                            <span *ngIf="!employeeForm.controls['contactnumber'].valid && (employeeForm.controls['contactnumber'].touched)" class="alert alert-danger">Valid Contact Number {{isRequiredValidator}}</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="row">
-                            <label class="col-md-4 control-label">Contact Number: </label>
-                            <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
-                            <input type="text" class="form-control col-md-6" formControlName="contactnumber" />
+                            <input type="number" class="form-control col-md-6" formControlName="contactnumber" />
                             <span *ngIf="!employeeForm.controls['contactnumber'].valid && (employeeForm.controls['contactnumber'].touched)" class="alert alert-danger">Valid Contact Number {{isRequiredValidator}}</span>
                         </div>
                     </div>
@@ -62,8 +53,10 @@
                         <div class="row">
                             <label class="col-md-4 control-label">Date Of Birth: </label>
                             <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
-                            <input type="text" class="form-control col-md-6" formControlName="dob" />
-                            <span *ngIf="!employeeForm.controls['dob'].valid && (employeeForm.controls['dob'].touched)" class="alert alert-danger">Valid Contact Number {{isRequiredValidator}}</span>
+                            <!-- <input type="text" class="form-control col-md-6" formControlName="dob" /> -->
+                            <input class="form-control col-md-6" readonly ngbDatepicker name="datePicker1" (click)="datePicker1.toggle(); closeDatepicker(datePicker2)" #datePicker1="ngbDatepicker" formControlName="dob" (dateSelect)="onDateSelect($event)" placeholder="dd-mm-yyyy">
+                            <!-- <ngb-timepicker formControlName="dob" meridian="meridian"></ngb-timepicker> -->
+                            <span *ngIf="!employeeForm.controls['dob'].valid && (employeeForm.controls['dob'].touched)" class="alert alert-danger">Date of birth {{isRequiredValidator}}</span>
                         </div>
                     </div>
 
@@ -80,8 +73,9 @@
                         <div class="row">
                             <label class="col-md-4 control-label">Joining Date: </label>
                             <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
-                            <input type="text" class="form-control col-md-6" formControlName="joiningdate" />
-                            <span *ngIf="!employeeForm.controls['joiningdate'].valid && (employeeForm.controls['joiningdate'].touched)" class="alert alert-danger">Valid Contact Number {{isRequiredValidator}}</span>
+                            <!-- <input type="text" class="form-control col-md-6" formControlName="joiningdate" /> -->
+                            <input id="joiningdate" class="form-control col-md-6" readonly ngbDatepicker name="datepicker2" (click)="datePicker2.toggle(); closeDatepicker(datePicker1)" #datePicker2="ngbDatepicker" formControlName="joiningdate" placeholder="dd-mm-yyyy">
+                            <span *ngIf="!employeeForm.controls['joiningdate'].valid && (employeeForm.controls['joiningdate'].touched)" class="alert alert-danger">Valid joining date {{isRequiredValidator}}</span>
                         </div>
                     </div>
 
@@ -89,7 +83,7 @@
                         <div class="row">
                             <label class="col-md-4 control-label">Salary: </label>
                             <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
-                            <input type="text" class="form-control col-md-6" formControlName="salary" />
+                            <input type="number" class="form-control col-md-6" formControlName="salary" />
                             <span *ngIf="!employeeForm.controls['salary'].valid && (employeeForm.controls['salary'].touched)" class="alert alert-danger">Valid Contact Number {{isRequiredValidator}}</span>
                         </div>
                     </div>
@@ -97,7 +91,7 @@
             </div>
 
             <div class="form-gorup ">
-                <input type="submit" type="button" value="Submit Form" [disabled]="!employeeForm.valid ">
+                <input type="submit" value="Submit Form" [disabled]="!employeeForm.valid ">
             </div>
         </div>
     </form>

@@ -6,6 +6,7 @@ import { EmployeeService } from 'src/app/Shared/Api/Employee/employee.service';
 import { Department } from 'src/app/Shared/Models/Department';
 import { error } from '@angular/compiler/src/util';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { typeSourceSpan } from '@angular/compiler';
 
 @Component({
   selector: 'app-employee-post',
@@ -13,21 +14,21 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   styleUrls: ['./employee-post.component.css'],
   animations: [
     trigger('toggleHeight', [
-           state('hide', style({
-               height: '0px',
-               opacity: '0',
-               overflow: 'hidden',
-               // display: 'none'
-           })),
-           state('show', style({
-               height: '*',
-               opacity: '1',
-               // display: 'block'
-           })),
-           transition('hide => show', animate('300ms ease-in')),
-           transition('show => hide', animate('300ms ease-out'))
-       ])
-   ],
+      state('hide', style({
+        height: '0px',
+        opacity: '0',
+        overflow: 'hidden',
+        // display: 'none'
+      })),
+      state('show', style({
+        height: '*',
+        opacity: '1',
+        // display: 'block'
+      })),
+      transition('hide => show', animate('300ms ease-in')),
+      transition('show => hide', animate('300ms ease-out'))
+    ])
+  ],
 })
 export class EmployeePostComponent implements OnInit {
 
@@ -35,12 +36,13 @@ export class EmployeePostComponent implements OnInit {
   employeeForm: FormGroup;
   post: any;
   dropdownSelectedValue: any;
-  isShow : any;
+  isShow: any;
   employee: Employee;
   deptnames: Array<Department>;
+  selectedDate: Date;
 
-  _departmentService : DepartmentService;
-  _employeeService : EmployeeService;
+  _departmentService: DepartmentService;
+  _employeeService: EmployeeService;
 
   isRequiredValidator: string = " is required";
   //#region initialization end
@@ -48,13 +50,13 @@ export class EmployeePostComponent implements OnInit {
   constructor(private fb: FormBuilder, private departmentService: DepartmentService, private employeeService: EmployeeService) {
     this.employeeForm = fb.group({
       'departmentList': [null, Validators.required],
-      'name' : [null, [Validators.required, Validators.maxLength(20), Validators.minLength(3)]],
-      'dob' : [null, Validators.required],
-      'age' : [],
-      'email' : [null, Validators.required],
-      'contactnumber' : [null, Validators.required],
-      'salary' : [null, Validators.required],
-      'joiningdate' : [null, Validators.required]
+      'name': [null, [Validators.required, Validators.maxLength(20), Validators.minLength(3)]],
+      'dob': [null, Validators.required],
+      'age': [],
+      'email': [null, Validators.required],
+      'contactnumber': [null, Validators.required],
+      'salary': [null, Validators.required],
+      'joiningdate': [null, Validators.required]
 
     });
     this._departmentService = departmentService;
@@ -62,35 +64,47 @@ export class EmployeePostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isShow='hide';
+    this.isShow = 'hide';
 
     this._departmentService.getAll().subscribe(data => {
-      if(data){
+      if (data) {
         this.deptnames = data;
         console.log(this.deptnames);
       }
-      else{
+      else {
         console.error(error);
       }
-     })
+    })
   }
 
   AddEmployee(post): void {
     console.log(post);
   }
 
-  onChange(dropdownSelectedValue){
-    
+  onDateSelect(selectedDate): void {
+    //console.log(selectedDate.day + selectedDate.year + selectedDate.month);
+    let now = new Date();
+    let age = Math.abs(Number(now.getFullYear()) - Number(selectedDate.year));
+    this.employeeForm.get('age').setValue(age);
+  }
+
+  onChange(dropdownSelectedValue) {
+
     console.log(dropdownSelectedValue);
-    if(dropdownSelectedValue.length != 0){
+    if (dropdownSelectedValue.length != 0) {
       console.log('iiiii');
       this.isShow = 'show';
     }
-    else{
+    else {
       console.log('eeeee');
       this.isShow = 'hide';
     }
     //isShow = (isShow==='show')? 'hide' : 'show'"
+  }
+
+
+  closeDatepicker(id){
+    id.close();
   }
 
 }
