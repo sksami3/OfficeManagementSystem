@@ -7,6 +7,7 @@ import { Department } from 'src/app/Shared/Models/Department';
 import { error } from '@angular/compiler/src/util';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { typeSourceSpan } from '@angular/compiler';
+import { NotificationService } from 'src/app/Shared/NotificationService/notification.service';
 
 @Component({
   selector: 'app-employee-post',
@@ -47,7 +48,7 @@ export class EmployeePostComponent implements OnInit {
   isRequiredValidator: string = " is required";
   //#region initialization end
 
-  constructor(private fb: FormBuilder, private departmentService: DepartmentService, private employeeService: EmployeeService) {
+  constructor(private fb: FormBuilder, private departmentService: DepartmentService, private employeeService: EmployeeService, private notifyService: NotificationService) {
     this.employeeForm = fb.group({
       'departmentList': [null, Validators.required],
       'name': [null, [Validators.required, Validators.maxLength(20), Validators.minLength(3)]],
@@ -78,7 +79,31 @@ export class EmployeePostComponent implements OnInit {
   }
 
   AddEmployee(post): void {
-    console.log(post);
+    let e = new Employee();
+    // this.employee = <Employee>post;
+    console.log(post.dateofbirth);
+    e.Age = post.age;
+    e.ContactNumber = post.contactnumber;
+    e.DateOfBirth = new Date;//post.dob;
+    e.DepartmentId = post.departmentList;
+    e.Email = post.email;
+    e.JoiningDate = new Date;//post.joiningdate;
+    e.Name = post.name;
+    e.Salary = post.salary;
+
+    this._employeeService.Insert(e).subscribe(data => {
+      if(data){
+        console.log("In data"+data);
+        this.notifyService.showSuccess("Employee added successfully !!", "OAS")
+        this.employeeForm.reset();
+      }
+      else{
+        console.log(data);
+      }
+    },
+    error => console.log(error)
+    //this.notifyService.showError(error, "OAS"),
+    )
   }
 
   onDateSelect(selectedDate): void {
@@ -92,11 +117,9 @@ export class EmployeePostComponent implements OnInit {
 
     console.log(dropdownSelectedValue);
     if (dropdownSelectedValue.length != 0) {
-      console.log('iiiii');
       this.isShow = 'show';
     }
     else {
-      console.log('eeeee');
       this.isShow = 'hide';
     }
     //isShow = (isShow==='show')? 'hide' : 'show'"

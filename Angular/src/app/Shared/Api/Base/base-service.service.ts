@@ -25,6 +25,7 @@ export class BaseService<T extends Base> implements IBaseRepository<T> {
     return this.http.put(`${this.URL}/${entity.Id}`,entity);
   }
   Insert(entity: T) : Observable<any> {
+    console.log(entity);
     return this.http.post(`${this.URL}`,entity)
   }
   Delete(id: number) : Observable<any> {

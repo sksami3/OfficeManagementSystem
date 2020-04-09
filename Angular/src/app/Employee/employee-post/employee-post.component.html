@@ -74,7 +74,7 @@
                             <label class="col-md-4 control-label">Joining Date: </label>
                             <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
                             <!-- <input type="text" class="form-control col-md-6" formControlName="joiningdate" /> -->
-                            <input id="joiningdate" class="form-control col-md-6" readonly ngbDatepicker name="datepicker2" (click)="datePicker2.toggle(); closeDatepicker(datePicker1)" #datePicker2="ngbDatepicker" formControlName="joiningdate" placeholder="dd-mm-yyyy">
+                            <input class="form-control col-md-6" readonly ngbDatepicker name="datepicker2" (click)="datePicker2.toggle(); closeDatepicker(datePicker1)" #datePicker2="ngbDatepicker" formControlName="joiningdate" placeholder="dd-mm-yyyy">
                             <span *ngIf="!employeeForm.controls['joiningdate'].valid && (employeeForm.controls['joiningdate'].touched)" class="alert alert-danger">Valid joining date {{isRequiredValidator}}</span>
                         </div>
                     </div>
