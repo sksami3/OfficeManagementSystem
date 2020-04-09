@@ -7,4 +7,6 @@ export class Employee extends Base{
     JoiningDate? : Date;
     DateOfBirth? : Date;
     DepartmentId? : number;
+    Email? : string;
+    ContactNumber : number;
 }

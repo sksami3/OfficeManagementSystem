@@ -41,11 +41,21 @@ export class EmployeePostComponent implements OnInit {
 
   _departmentService : DepartmentService;
   _employeeService : EmployeeService;
+
+  isRequiredValidator: string = " is required";
   //#region initialization end
 
   constructor(private fb: FormBuilder, private departmentService: DepartmentService, private employeeService: EmployeeService) {
     this.employeeForm = fb.group({
-      'departmentList': [null, Validators.required]
+      'departmentList': [null, Validators.required],
+      'name' : [null, [Validators.required, Validators.maxLength(20), Validators.minLength(3)]],
+      'dob' : [null, Validators.required],
+      'age' : [],
+      'email' : [null, Validators.required],
+      'contactnumber' : [null, Validators.required],
+      'salary' : [null, Validators.required],
+      'joiningdate' : [null, Validators.required]
+
     });
     this._departmentService = departmentService;
     this._employeeService = employeeService;

@@ -16,6 +16,9 @@ namespace OAS.Core.Entity
         [Required]
         public double Salary { get; set; }
         [Required]
+        public string Email { get; set; }
+        public int ContactNumber { get; set; }
+        [Required]
         public DateTime JoiningDate { get; set; }
         [Required]
         public DateTime DateOfBirth { get; set; }
