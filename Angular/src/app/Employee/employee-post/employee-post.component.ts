@@ -79,37 +79,42 @@ export class EmployeePostComponent implements OnInit {
   }
 
   AddEmployee(post): void {
+    console.log(post.dob);
+    ////#region assigning values
     let e = new Employee();
     // this.employee = <Employee>post;
-    console.log(post.dateofbirth);
     e.Age = post.age;
     e.ContactNumber = post.contactnumber;
-    e.DateOfBirth = new Date;//post.dob;
+    let dobString = new Date(post.dob.year + '-' + post.dob.month + '-' + post.dob.day);
+    e.DateOfBirth = new Date(dobString);
     e.DepartmentId = post.departmentList;
     e.Email = post.email;
-    e.JoiningDate = new Date;//post.joiningdate;
+    let joiningString = new Date(post.joiningdate.year + '-' + post.joiningdate.month + '-' + post.joiningdate.day);
+    e.JoiningDate = new Date(joiningString);
     e.Name = post.name;
     e.Salary = post.salary;
+    ////#endregion
 
     this._employeeService.Insert(e).subscribe(data => {
-      if(data){
-        console.log("In data"+data);
+      if (data) {
+        console.log("In data" + data);
         this.notifyService.showSuccess("Employee added successfully !!", "OAS")
         this.employeeForm.reset();
       }
-      else{
+      else {
         console.log(data);
       }
     },
-    error => console.log(error)
-    //this.notifyService.showError(error, "OAS"),
+      error => console.log(error)
+      //this.notifyService.showError(error, "OAS"),
     )
   }
 
   onDateSelect(selectedDate): void {
-    //console.log(selectedDate.day + selectedDate.year + selectedDate.month);
-    let now = new Date();
-    let age = Math.abs(Number(now.getFullYear()) - Number(selectedDate.year));
+    let dobString = new Date(selectedDate.year + '-' + selectedDate.month + '-' + selectedDate.day);
+    let timeDiff = Math.abs(Date.now() - dobString.getTime());
+    let age = Math.floor((timeDiff / (1000 * 3600 * 24)) / 365.25);
+
     this.employeeForm.get('age').setValue(age);
   }
 
@@ -126,7 +131,7 @@ export class EmployeePostComponent implements OnInit {
   }
 
 
-  closeDatepicker(id){
+  closeDatepicker(id) {
     id.close();
   }
 
