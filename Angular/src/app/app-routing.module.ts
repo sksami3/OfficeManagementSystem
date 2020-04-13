@@ -14,6 +14,7 @@ import { HomeComponent } from './Home/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DepartmentPostComponent } from './Department/department-post/department-post.component';
 import { DepartmentSidebarComponent } from './Department/department-sidebar/department-sidebar.component';
+import { EmployeePostComponent } from './Employee/employee-post/employee-post.component';
 
 
 const appRoutes: Routes = 
@@ -34,6 +35,11 @@ const appRoutes: Routes =
   {
     path: 'PostDepartment',
     component: DepartmentPostComponent
+    
+  },
+  {
+    path: 'PostEmployee',
+    component: EmployeePostComponent
     
   },
   
