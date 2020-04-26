@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 // import { Observable } from 'rxjs/Observable';
 import { Department } from 'src/app/Shared/Models/Department'
 import { Observable } from 'rxjs';
+import { DepartmentWiseEmployeeStatisticsVM } from '../Models/DepartmentWiseEmployeeStatisticsVM';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,10 @@ export class DepartmentService {
 
   getAll() : Observable<Department[]>{
     return this.http.get<Department[]>(`${this.DepartmetAPI}`);
+  }
+
+  getAllDepartmentStat() : Observable<DepartmentWiseEmployeeStatisticsVM[]>{
+    return this.http.get<DepartmentWiseEmployeeStatisticsVM[]>(`${this.DepartmetAPI}/GetDepartmertStat`);
   }
 
   getById(Id : number) : Observable<Department>{
