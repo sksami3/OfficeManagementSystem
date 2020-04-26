@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OAS.Core.Entity;
+using OAS.Core.Entity.ViewModel;
 using OSA.Core.Interface;
 using OSA.Infructure.Context.OASDbContext;
 
@@ -33,6 +34,14 @@ namespace OSA.Api.Controllers
             var result = _departmentRepository.GetAll();
             return result;
         }
+        [HttpGet("GetDepartmertStat")]
+        public async Task<List<DepartmentWiseEmployeeStatisticsVM>> GetDepartmertStat()
+        {
+            IList<DepartmentWiseEmployeeStatisticsVM> result = await _departmentRepository.GetDepartmertStat();
+            
+            return result.ToList();
+        }
+
 
         // GET: api/Departments/5
         [HttpGet("{id}")]

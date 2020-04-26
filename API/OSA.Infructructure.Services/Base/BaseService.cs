@@ -15,14 +15,17 @@ namespace OSA.Infructructure.Services.Base
 {
     public class BaseService<T> : IBaseRepository<T> where T : BaseModel
     {
+        public OfficeAttendenceSystemDbContext _DbContextForOtherUse;
         private OfficeAttendenceSystemDbContext _DbContext;
-        private DbSet<T> _innerDB;
+        internal DbSet<T> _innerDB;
         DbContextOptionsBuilder<OfficeAttendenceSystemDbContext> _optionsBuilder;
 
         public BaseService()
         {
             _optionsBuilder = new DbContextOptionsBuilder<OfficeAttendenceSystemDbContext>();
             _DbContext = new OfficeAttendenceSystemDbContext(_optionsBuilder.Options);
+            _DbContextForOtherUse = new OfficeAttendenceSystemDbContext(_optionsBuilder.Options);
+            _innerDB = _DbContext.Set<T>();
         }
         public bool Delete(T entity)
         {
@@ -50,7 +53,7 @@ namespace OSA.Infructructure.Services.Base
             try
             {
                 //Type typeParameterType = typeof(T);               
-                _innerDB = _DbContext.Set<T>();
+                //_innerDB = _DbContext.Set<T>();
 
                 //List<T> result = new List<T>();
 
