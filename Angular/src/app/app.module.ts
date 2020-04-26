@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { EmployeePostComponent } from './Employee/employee-post/employee-post.component';
 import { ToastrModule } from 'ngx-toastr';
+import { CoolDialogsModule } from '@angular-cool/dialogs';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(),
     AppRoutingModule,
     NgbDatepickerModule,
-    NgbTimepickerModule
+    NgbTimepickerModule,
+    CoolDialogsModule,
+    ChartsModule
   ],
   providers: [DepartmentService],
   bootstrap: [AppComponent]
