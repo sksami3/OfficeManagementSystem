@@ -1,3 +1,5 @@
-<div style="display: block" *ngIf="chartReady" id="hh">
-    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"></canvas>
+<div class="container-fluid col-md-6">
+    <div class="col-md-10" style="display: block" *ngIf="chartReady" id="hh">
+        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"></canvas>
+    </div>
 </div>

@@ -24,6 +24,10 @@ const appRoutes: Routes =
      component: HomeComponent 
   },
   { 
+    path: 'Home',
+     component: HomeComponent 
+  },
+  { 
     path: 'departments',      
     component: DepartmentListComponent,
   },
