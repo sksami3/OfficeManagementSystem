@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DepartmentPostComponent } from './Department/department-post/department-post.component';
 import { DepartmentSidebarComponent } from './Department/department-sidebar/department-sidebar.component';
 import { EmployeePostComponent } from './Employee/employee-post/employee-post.component';
+import { EmployeeListComponent } from './Employee/employee-list/employee-list.component';
 
 
 const appRoutes: Routes = 
@@ -44,6 +45,11 @@ const appRoutes: Routes =
   {
     path: 'PostEmployee',
     component: EmployeePostComponent
+    
+  },
+  {
+    path: 'Employees',
+    component: EmployeeListComponent
     
   },
   

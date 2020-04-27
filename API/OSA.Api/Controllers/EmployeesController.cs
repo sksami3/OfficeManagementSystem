@@ -32,9 +32,10 @@ namespace OSA.Api.Controllers
 
         // GET: api/Employees
         [HttpGet]
-        public ActionResult<IList<Employee>> GetEmployees()
+        public async Task<IList<Employee>> GetEmployees()
         {
-            return _employeeRepository.GetAll();
+            return await _employeeRepository.GetEmployeesWithDeptName();
+            //return _employeeRepository.GetAll();
             //return await _context.Employees.ToListAsync();
         }
 

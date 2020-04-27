@@ -22,6 +22,8 @@ import { EmployeePostComponent } from './Employee/employee-post/employee-post.co
 import { ToastrModule } from 'ngx-toastr';
 import { CoolDialogsModule } from '@angular-cool/dialogs';
 import { ChartsModule } from 'ng2-charts';
+import { DataTablesModule } from 'angular-datatables';
+import { EmployeeListComponent } from './Employee/employee-list/employee-list.component';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { ChartsModule } from 'ng2-charts';
     HomeComponent,
     DepartmentPostComponent,
     DepartmentSidebarComponent,
-    EmployeePostComponent   
+    EmployeePostComponent,
+    EmployeeListComponent       
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { ChartsModule } from 'ng2-charts';
     NgbDatepickerModule,
     NgbTimepickerModule,
     CoolDialogsModule,
-    ChartsModule
+    ChartsModule,
+    DataTablesModule
   ],
   providers: [DepartmentService],
   bootstrap: [AppComponent]
