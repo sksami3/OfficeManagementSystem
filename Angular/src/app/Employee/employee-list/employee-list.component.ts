@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Employee } from 'src/app/Shared/Models/Employee';
+import { EmployeeService } from 'src/app/Shared/Api/Employee/employee.service';
 
-class Person {
-  id: number;
-  firstName: string;
-  lastName: string;
-}
+// class Person {
+//   id: number;
+//   firstName: string;
+//   lastName: string;
+// }
 
-class DataTablesResponse {
-  data: any[];
-  draw: number;
-  recordsFiltered: number;
-  recordsTotal: number;
-}
+// class DataTablesResponse {
+//   data: any[];
+//   draw: number;
+//   recordsFiltered: number;
+//   recordsTotal: number;
+// }
 
 @Component({
   selector: 'app-employee-list',
@@ -22,34 +24,37 @@ class DataTablesResponse {
 export class EmployeeListComponent implements OnInit {
 
   dtOptions: DataTables.Settings = {};
-  persons: Person[];
+  //persons: Person[];
+  employees: Employee[]; 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private employeeService : EmployeeService) { }
 
   ngOnInit(): void {
     const that = this;
 
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 12,
+      pageLength: 5,
       serverSide: true,
       processing: true,
       ajax: (dataTablesParameters: any, callback) => {
-        that.http
-          .post<DataTablesResponse>(
-            'https://angular-datatables-demo-server.herokuapp.com/',
-            dataTablesParameters, {}
-          ).subscribe(resp => {
-            that.persons = resp.data;
+        console.log("in aja");
+        console.log(dataTablesParameters);
+        this.employeeService.employeeWithdeptName(dataTablesParameters).subscribe(resp => {
+            console.log(resp);
+            that.employees = resp.data;
+            console.log(that.employees);
 
             callback({
               recordsTotal: resp.recordsTotal,
-              recordsFiltered: resp.recordsFiltered,
+              recordsFiltered: resp.recordsTotal,
               data: []
             });
+            //columns: [{ data: 'id' }, { data: 'firstName' }, { data: 'lastName' },{ data: 'id' }, { data: 'firstName' }, { data: 'lastName' }]
           });
-      },
-      columns: [{ data: 'id' }, { data: 'firstName' }, { data: 'lastName' }]
+         
+        }
+      //, columns: [{ data: 'id' }, { data: 'firstName' }, { data: 'lastName' }]
     };
   }
 }

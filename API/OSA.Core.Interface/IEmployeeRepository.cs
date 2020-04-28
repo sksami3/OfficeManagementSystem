@@ -1,4 +1,5 @@
 ﻿using OAS.Core.Entity;
+using OAS.Core.Entity.ViewModel;
 using OSA.Core.Interface.Base;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,6 @@ namespace OSA.Core.Interface
 {
     public interface IEmployeeRepository : IBaseRepository<Employee>
     {
-        Task<IList<Employee>> GetEmployeesWithDeptName();
+        Task<EmployeeViewModel> GetEmployeesWithDeptName(int draw,int length,string searchValue);
     }
 }

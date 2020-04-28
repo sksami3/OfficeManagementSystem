@@ -1,6 +1,12 @@
 import { Base } from './Base';
 
 export class Employee extends Base{
+
+    data?: any[];
+    draw?: number;
+    recordsFiltered?: number;
+    recordsTotal?: number;
+
     Name? : string;
     Age? : number;
     Salary? : number;
@@ -9,4 +15,6 @@ export class Employee extends Base{
     DepartmentId? : number;
     Email? : string;
     ContactNumber : number;
+
+    DepartmentName? : string;
 }

@@ -6,7 +6,10 @@ using System.Transactions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using OAS.Core.Entity;
+using OAS.Core.Entity.ViewModel;
 using OSA.Core.Interface;
 using OSA.Infructure.Context.OASDbContext;
 
@@ -32,11 +35,36 @@ namespace OSA.Api.Controllers
 
         // GET: api/Employees
         [HttpGet]
-        public async Task<IList<Employee>> GetEmployees()
+        public async Task<List<Employee>> GetEmployees()
         {
-            return await _employeeRepository.GetEmployeesWithDeptName();
-            //return _employeeRepository.GetAll();
+            //return await _employeeRepository.GetEmployeesWithDeptName();
+            return _employeeRepository.GetAll();
             //return await _context.Employees.ToListAsync();
+        }
+
+        [HttpPost("GetEmployeesPost")]
+        public async Task<EmployeeViewModel> GetEmployeesPost(object something)
+        {
+            try
+            {
+                JToken token = JObject.Parse(something.ToString());
+                int length = (int)token.SelectToken("length");
+                int draw = (int)token.SelectToken("draw");
+                int start = (int)token.SelectToken("start");
+                string value = token.SelectToken("search").ToString();
+                string[] splitted = value.Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                string[] splitted1 = splitted[1].Split(":");
+                string searchValue = splitted1[1].Replace("\"", "").Replace(",", "");
+
+                var result = await _employeeRepository.GetEmployeesWithDeptName(start, length,searchValue);
+
+                return result;
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+           
         }
 
         // GET: api/Employees/5
@@ -97,12 +125,12 @@ namespace OSA.Api.Controllers
         {
             //_context.Employees.Add(employee);
             //await _context.SaveChangesAsync();
-            if(employee.Department != null && employee.Department.Id > 0 && employee.DepartmentId == 0)
+            if (employee.Department != null && employee.Department.Id > 0 && employee.DepartmentId == 0)
             {
                 employee.DepartmentId = employee.Department.Id;
                 employee.Department = null;//await _departmentRepository.FindById(employee.Department.Id);                
             }
-            else if(employee.DepartmentId == 0)
+            else if (employee.DepartmentId == 0)
             {
                 return NoContent();
             }
@@ -111,11 +139,11 @@ namespace OSA.Api.Controllers
             {
                 isSuccess = await _employeeRepository.Insert(employee);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
-            
+
             if (isSuccess)
                 return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
             else
