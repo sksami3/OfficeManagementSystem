@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'department-sidebar',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepartmentSidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { 
+    // this.router.errorHandler = (error: any) => {
+    //   this.router.navigate(['departments']); // or redirect to default route
+    //   console.log(error);
+      
+    // }
+  }
 
   ngOnInit(): void {
   }

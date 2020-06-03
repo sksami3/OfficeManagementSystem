@@ -1,0 +1,31 @@
+<div class="container-fluid col-md-6" id="mainDiv">
+    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Department Name</th>
+                <th>Age</th>
+                <th>Date Of Joining</th>
+                <th>Contact Number</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="employees?.length != 0">
+            <tr *ngFor="let employees of employees">
+                <td>{{ employees.id }}</td>
+                <td>{{ employees.name }}</td>
+                <td>{{ employees.salary }}</td>
+                <td>{{ employees.departmentName }}</td>
+                <td>{{ employees.age }}</td>
+                <td>{{ employees.joiningDate }}</td>
+                <td>{{ employees.contactNumber }}</td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="employees?.length == 0">
+            <tr>
+                <td colspan="3" class="no-data-available">No data!</td>
+            </tr>
+            <tbody>
+    </table>
+</div>

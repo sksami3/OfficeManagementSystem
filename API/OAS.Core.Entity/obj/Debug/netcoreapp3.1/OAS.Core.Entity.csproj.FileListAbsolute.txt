@@ -17,3 +17,4 @@ D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OA
 D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OAS.Core.Entity.AssemblyInfo.cs
 D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OAS.Core.Entity.dll
 D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OAS.Core.Entity.pdb
+D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OAS.Core.Entity.csprojAssemblyReference.cache

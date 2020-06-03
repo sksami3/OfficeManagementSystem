@@ -1,0 +1,8 @@
+#empDiv {
+    float: inline-start;
+    /* clear: left; */
+}
+
+animation {
+    display: block;
+}

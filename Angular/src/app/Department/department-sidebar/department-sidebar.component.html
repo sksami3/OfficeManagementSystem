@@ -1,15 +1,15 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 </head>
-<div style="float: left;">
+<div class="col-md-3" id="mainRapper">
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-icon rotate-n-15">
+            <!-- <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            </div> -->
+            <div class="sidebar-brand-text mx-3">OAS <sup>count every movement</sup></div>
         </a>
 
         <!-- Divider -->
@@ -43,6 +43,23 @@
                     <a class="collapse-item" routerLinkActive="active" routerLink="PostDepartment">Create New</a>
                     <a class="collapse-item" routerLinkActive="active" routerLink="GetDepartment/:id">Details</a>
                     <a class="collapse-item" routerLinkActive="active" routerLink="EditDepartment/:id">Edit</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Employee</span>
+            </a>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Employee:</h6>
+                    <a class="collapse-item" routerLinkActive="active" routerLink="Employees">Employee List</a>
+                    <a class="collapse-item" routerLinkActive="active" routerLink="PostEmployee">Create New</a>
+                    <a class="collapse-item" routerLinkActive="active" routerLink="Later/:id">Details</a>
+                    <a class="collapse-item" routerLinkActive="active" routerLink="Later/:id">Edit</a>
                 </div>
             </div>
         </li>
@@ -116,5 +133,4 @@
 
     </ul>
 </div>
-
 <!-- </body> -->

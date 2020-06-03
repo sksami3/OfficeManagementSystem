@@ -44,3 +44,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+/API/OSA.Api/bin/Debug/netcoreapp3.1/
+

@@ -11,38 +11,20 @@ import { PageNotFoundComponent } from './Department/page-not-found/page-not-foun
 import { HomeComponent } from './Home/home/home.component';
 import {MatTableModule} from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbDatepickerModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 // adding rout
 import { RouterModule, Routes } from '@angular/router';
 import { DepartmentPostComponent } from './Department/department-post/department-post.component';
 import { DepartmentSidebarComponent } from './Department/department-sidebar/department-sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+import { EmployeePostComponent } from './Employee/employee-post/employee-post.component';
 import { ToastrModule } from 'ngx-toastr';
+import { CoolDialogsModule } from '@angular-cool/dialogs';
+import { ChartsModule } from 'ng2-charts';
+import { DataTablesModule } from 'angular-datatables';
+import { EmployeeListComponent } from './Employee/employee-list/employee-list.component';
 
-
-const appRoutes: Routes = 
-[
-  { 
-    path: '',
-     component: HomeComponent 
-  },
-  { 
-    path: 'departments',      
-    component: DepartmentListComponent,
-    data: { title: 'Heroes List' } 
-  },
-  {
-    path: 'EditDepartment/:id',
-    component: DepartmentEditComponent
-    
-  },
-  {
-    path: 'PostDepartment',
-    component: DepartmentPostComponent
-    
-  },
-  
-  { path: '**', component: PageNotFoundComponent }
-];
 
 @NgModule({
   declarations: [
@@ -52,21 +34,25 @@ const appRoutes: Routes =
     DepartmentHeaderComponent,
     HomeComponent,
     DepartmentPostComponent,
-    DepartmentSidebarComponent   
+    DepartmentSidebarComponent,
+    EmployeePostComponent,
+    EmployeeListComponent       
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),
     MatTableModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AppRoutingModule,
+    NgbDatepickerModule,
+    NgbTimepickerModule,
+    CoolDialogsModule,
+    ChartsModule,
+    DataTablesModule
   ],
   providers: [DepartmentService],
   bootstrap: [AppComponent]

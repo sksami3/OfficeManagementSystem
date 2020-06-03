@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using OSA.Core.Interface;
 using OSA.Infructructure.Services;
 using OSA.Infructure.Context.OASDbContext;
@@ -37,6 +38,7 @@ namespace OSA.Api
             services.AddControllers();
 
             services.AddTransient<IDepartmentRepository, DepartmentService>();
+            services.AddTransient<IEmployeeRepository, EmployeeService>();
             services.AddControllers().AddNewtonsoftJson();
 
             //CROS
@@ -52,6 +54,16 @@ namespace OSA.Api
 
             services.AddControllers();
 
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
+
+            //services.AddDbContextPool<OfficeAttendenceSystemDbContext>(options =>
+            // options.UseLazyLoadingProxies()
+            // .UseSqlServer(Configuration.GetConnectionString("OfficeAttendenceSystemDbContext")));
+             //.UseSqlServer("OfficeAttendenceSystemDbContext"));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,15 +77,6 @@ namespace OSA.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            #region Unused for CORS
-            //app.UseAuthorization();
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllers();
-            //});
-            #endregion
 
             //CORS
             app.UseHttpsRedirection();
@@ -91,5 +94,6 @@ namespace OSA.Api
             });
 
         }
+
     }
 }
