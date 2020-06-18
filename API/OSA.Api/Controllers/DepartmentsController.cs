@@ -60,8 +60,7 @@ namespace OSA.Api.Controllers
         public async Task<IActionResult> PutDepartment(long id, Department department)
         {
             Department departmentFromDb;
-            Task<Department> d = _departmentRepository.FindById(id);
-            departmentFromDb = await d;
+            departmentFromDb = await _departmentRepository.FindById(id);
             departmentFromDb.Name = department.Name;
             bool isSuccess = false;
             if (id != department.Id)
