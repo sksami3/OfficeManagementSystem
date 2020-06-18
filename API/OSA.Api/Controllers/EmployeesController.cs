@@ -11,7 +11,7 @@ using Newtonsoft.Json.Linq;
 using OAS.Core.Entity;
 using OAS.Core.Entity.ViewModel;
 using OSA.Core.Interface;
-using OSA.Infructure.Context.OASDbContext;
+using OSA.Api.Helper;
 
 namespace OSA.Api.Controllers
 {
@@ -19,16 +19,14 @@ namespace OSA.Api.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        #region Delete Later
-        private readonly OfficeAttendenceSystemDbContext _context;
+        #region Initialization
         private readonly IEmployeeRepository _employeeRepository;
-        private readonly IDepartmentRepository _departmentRepository;
+        private readonly HelperClass _helper;
 
-        public EmployeesController(OfficeAttendenceSystemDbContext context, IEmployeeRepository employeeRepository, IDepartmentRepository departmentRepository)
+        public EmployeesController(IEmployeeRepository employeeRepository)
         {
-            _context = context;
             this._employeeRepository = employeeRepository;
-            this._departmentRepository = departmentRepository;
+            _helper = new HelperClass();
         }
         #endregion
 
@@ -37,9 +35,7 @@ namespace OSA.Api.Controllers
         [HttpGet]
         public async Task<List<Employee>> GetEmployees()
         {
-            //return await _employeeRepository.GetEmployeesWithDeptName();
-            return _employeeRepository.GetAll();
-            //return await _context.Employees.ToListAsync();
+            return await _employeeRepository.GetAll();
         }
 
         [HttpPost("GetEmployeesPost")]
@@ -47,14 +43,9 @@ namespace OSA.Api.Controllers
         {
             try
             {
-                JToken token = JObject.Parse(something.ToString());
-                int length = (int)token.SelectToken("length");
-                int draw = (int)token.SelectToken("draw");
-                int start = (int)token.SelectToken("start");
-                string value = token.SelectToken("search").ToString();
-                string[] splitted = value.Split(new string[] { System.Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-                string[] splitted1 = splitted[1].Split(":");
-                string searchValue = splitted1[1].Replace("\"", "").Replace(",", "");
+                int start = 0, length = 0;
+                string searchValue = "";
+                _helper.GetFilterValues(something, ref start, ref length, ref searchValue);
 
                 var result = await _employeeRepository.GetEmployeesWithDeptName(start, length,searchValue);
 
@@ -62,7 +53,7 @@ namespace OSA.Api.Controllers
             }
             catch(Exception e)
             {
-                return null;
+                throw e;
             }
            
         }
@@ -123,8 +114,6 @@ namespace OSA.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Employee>> PostEmployee(Employee employee)
         {
-            //_context.Employees.Add(employee);
-            //await _context.SaveChangesAsync();
             if (employee.Department != null && employee.Department.Id > 0 && employee.DepartmentId == 0)
             {
                 employee.DepartmentId = employee.Department.Id;
@@ -160,7 +149,7 @@ namespace OSA.Api.Controllers
                 return NotFound();
             }
 
-            bool result = _employeeRepository.Delete(employee);
+            bool result = await _employeeRepository.Delete(employee);
 
             if (result)
                 return employee;

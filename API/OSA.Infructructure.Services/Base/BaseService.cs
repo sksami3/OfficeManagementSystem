@@ -27,13 +27,12 @@ namespace OSA.Infructructure.Services.Base
             _DbContextForOtherUse = new OfficeAttendenceSystemDbContext(_optionsBuilder.Options);
             _innerDB = _DbContext.Set<T>();
         }
-        public bool Delete(T entity)
+        public async Task<bool> Delete(T entity)
         {
             try
             {
-                //_innerDB.Remove(entity);
                 _DbContext.Entry(entity).State = EntityState.Deleted;
-                _DbContext.SaveChangesAsync();
+                await _DbContext.SaveChangesAsync();
                 return true;
             }
             catch(Exception e)
@@ -52,26 +51,13 @@ namespace OSA.Infructructure.Services.Base
         {
             try
             {
-                //Type typeParameterType = typeof(T);               
-                //_innerDB = _DbContext.Set<T>();
-
-                //List<T> result = new List<T>();
-
-                //if (typeParameterType.Name == "Department")
-                //    result = await _innerDB.Where(x => !x.IsDelete).Include("Employees").ToListAsync();
-                //else
-                //    result = await _innerDB.Where(x => !x.IsDelete).Include("Department").ToListAsync();
-
                 var result = await _innerDB.Where(x => !x.IsDelete).ToListAsync();
-
                 return result;
-                //throw new NotImplementedException();
             }
             catch(Exception e)
             {
-
+                throw e;
             }
-            return null;
         }
 
         public async Task<bool> Insert(T entity)
@@ -80,7 +66,7 @@ namespace OSA.Infructructure.Services.Base
             entity.UpdatedDate = DateTime.Now;
             entity.IsDelete = false;
 
-            var x = _DbContext.Set<T>().Add(entity);
+            _DbContext.Set<T>().Add(entity);
             await _DbContext.SaveChangesAsync();
             return true;
         }
@@ -94,9 +80,9 @@ namespace OSA.Infructructure.Services.Base
             return true;
         }
 
-        List<T> IBaseRepository<T>.GetAll()
-        {
-            return GetAll().Result;
-        }
+        //List<T> IBaseRepository<T>.GetAll()
+        //{
+        //    return GetAll().Result;
+        //}
     }
 }

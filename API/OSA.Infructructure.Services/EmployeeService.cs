@@ -16,9 +16,9 @@ namespace OSA.Infructructure.Services
         {
             var dept = _DbContextForOtherUse.Departments;
 
-            var jt = from e in _DbContextForOtherUse.Employees
+            var eList = from e in _DbContextForOtherUse.Employees
                      join d in dept
-                    on e.Department.Id equals d.Id
+                     on e.Department.Id equals d.Id
                      where true
                      select new Employee
                      {
@@ -39,13 +39,13 @@ namespace OSA.Infructructure.Services
 
                      };
             EmployeeViewModel evm = new EmployeeViewModel();
-            evm.recordsTotal = jt.Count();
+            evm.recordsTotal = eList.Count();
             if (!string.IsNullOrEmpty(searchValue.Trim()))
             {
-                evm.data = await Task.FromResult(jt.Where(x => x.Name.Contains(searchValue.Trim()) || x.ContactNumber.ToString().Contains(searchValue.Trim()) || x.Salary.ToString().Contains(searchValue.Trim())).Skip(start).Take(length).ToList());
+                evm.data = await Task.FromResult(eList.Where(x => x.Name.Contains(searchValue.Trim()) || x.ContactNumber.ToString().Contains(searchValue.Trim()) || x.Salary.ToString().Contains(searchValue.Trim())).Skip(start).Take(length).ToList());
             }
             else
-                evm.data = await Task.FromResult(jt.Skip(start).Take(length).ToList());
+                evm.data = await Task.FromResult(eList.Skip(start).Take(length).ToList());
 
             evm.recordsFiltered = evm.data.Count();
 
