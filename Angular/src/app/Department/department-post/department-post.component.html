@@ -1,13 +1,16 @@
-<form #departmentSubmitForm="ngForm" (ngSubmit)="save(departmentSubmitForm.value)">
-    <div class="form-group">
-        <label ngFor="Name">Department Name</label>
-        <input required minlength="3" maxlength="10" [ngModel] name="Name" #Name="ngModel" type="text" id="Name" class="form-control">
-        <!-- <input required minlength="3" maxlength="10" type="text" id="department.Name" name="department.Name" [(ngModel)]="department.Name" #Name="ngModel" class="form-control"> -->
-        <div class="alert alert-danger" *ngIf="Name.touched && !Name.valid">
-            <div *ngIf="Name.errors.required">Department Name Can't be null</div>
-            <div *ngIf="Name.errors.minlength">Minimum length is {{Name.errors.minlength.requiredLength}}</div>
-            <div *ngIf="Name.errors.maxlength">Maximum length is 10</div>
+<div class="container-fluid col-md-6" style="margin-right: 160px;">
+    <form #departmentSubmitForm="ngForm" (ngSubmit)="save(departmentSubmitForm.value); departmentSubmitForm.reset()">
+        <div class="form-group">
+            <label ngFor="Name">Department Name</label>
+            <input required minlength="3" maxlength="10" [ngModel] name="Name" #Name="ngModel" type="text" id="Name" class="form-control">
+            <!-- <input required minlength="3" maxlength="10" type="text" id="department.Name" name="department.Name" [(ngModel)]="department.Name" #Name="ngModel" class="form-control"> -->
+            <div class="alert alert-danger" *ngIf="Name.touched && !Name?.valid">
+                <div *ngIf="Name.errors.required">Department Name Can't be null</div>
+                <div *ngIf="Name.errors.minlength">Minimum length is {{Name.errors.minlength.requiredLength}}</div>
+                <div *ngIf="Name.errors.maxlength">Maximum length is 10</div>
+            </div>
         </div>
-    </div>
-    <button class="btn btn-primary">Submit</button>
-</form>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<a [routerLink]="['/departments']">Go to List</a>

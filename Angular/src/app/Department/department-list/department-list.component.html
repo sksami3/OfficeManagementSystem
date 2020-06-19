@@ -5,32 +5,38 @@
 <!-- <ol>
     <li *ngFor="let d of departmetnList">{{d.name+ " Serial:" +" "+ d.id}}</li>
 </ol> -->
+<!-- Begin Page Content -->
+<div class="container-fluid col-md-6" style="margin-right: 160px;">
 
-<table mat-table [dataSource]="departmetnList">
-    <!-- serial Column -->
-    <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> Serial </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-    </ng-container>
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
+    <!-- Page Heading -->
+    <!-- /.container-fluid -->
+    <table mat-table [dataSource]="departmetnList">
+        <!-- serial Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Serial </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="edit">
-        <th mat-header-cell *matHeaderCellDef> edit </th>
-        <button mat-cell *matCellDef="let element" value="Edit" (click)="editDepartment(element.id)">Edit</button>
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> edit </th>
+            <button mat-cell *matCellDef="let element" value="Edit" (click)="editDepartment(element.id)">Edit</button>
 
-    </ng-container>
-    <ng-container matColumnDef="delete">
-        <th mat-header-cell *matHeaderCellDef> delete </th>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> delete </th>
 
-        <button mat-cell *matCellDef="let element" value="Delete" (click)="deleteDepartment(element.id)">Delete</button>
+            <button mat-cell *matCellDef="let element" value="Delete" (click)="deleteDepartment(element.id)">Delete</button>
 
-    </ng-container>
+        </ng-container>
 
 
-    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
-</table>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+    </table>
+
+</div>

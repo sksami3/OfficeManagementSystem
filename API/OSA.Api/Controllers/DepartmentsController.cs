@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OAS.Core.Entity;
+using OAS.Core.Entity.ViewModel;
 using OSA.Core.Interface;
 using OSA.Infructure.Context.OASDbContext;
 
@@ -17,7 +18,6 @@ namespace OSA.Api.Controllers
     //[EnableCors("AllowOrigin")]
     public class DepartmentsController : ControllerBase
     {
-        private readonly OfficeAttendenceSystemDbContext _context;
         private readonly IDepartmentRepository _departmentRepository;
 
         public DepartmentsController(IDepartmentRepository departmentRepository)
@@ -27,26 +27,29 @@ namespace OSA.Api.Controllers
 
         // GET: api/Departments
         [HttpGet]
-        //[EnableCors("AllowOrigin")]
-        public ActionResult<List<Department>> GetDepartments()
+        public async Task<List<Department>> GetDepartments()
         {
-            var result = _departmentRepository.GetAll();
-            return result;
+            return await _departmentRepository.GetAll(); 
         }
+        [HttpGet("GetDepartmertStat")]
+        public async Task<List<DepartmentWiseEmployeeStatisticsVM>> GetDepartmertStat()
+        {
+            IList<DepartmentWiseEmployeeStatisticsVM> result = await _departmentRepository.GetDepartmertStat();           
+            return result.ToList();
+        }
+
 
         // GET: api/Departments/5
         [HttpGet("{id}")]
         public async Task<Department> GetDepartment(long id)
         {
             Task<Department> department = _departmentRepository.FindById(id);
-
             Department dept = await department;
 
             if (dept == null)
             {
                 return null;
             }
-
             return dept;
         }
 
@@ -57,25 +60,21 @@ namespace OSA.Api.Controllers
         public async Task<IActionResult> PutDepartment(long id, Department department)
         {
             Department departmentFromDb;
-            Task<Department> d = _departmentRepository.FindById(id);
-            departmentFromDb = await d;
+            departmentFromDb = await _departmentRepository.FindById(id);
             departmentFromDb.Name = department.Name;
             bool isSuccess = false;
             if (id != department.Id)
             {
                 return BadRequest();
             }
-
-            //_context.Entry(department).State = EntityState.Modified;
             try
             {
                 Task<bool> result = _departmentRepository.Update(departmentFromDb);
                 isSuccess = await result;
-                //await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DepartmentExists(id))
+                if (_departmentRepository.FindById(id) != null)
                 {
                     return NotFound();
                 }
@@ -98,9 +97,6 @@ namespace OSA.Api.Controllers
         public ActionResult<Department> PostDepartment(Department department)
         {
             _departmentRepository.Insert(department);
-            //_context.Departments.Add(department);
-            //await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetDepartment", new { id = department.Id }, department);
         }
 
@@ -114,17 +110,12 @@ namespace OSA.Api.Controllers
                 return NotFound();
             }
 
-            bool result = _departmentRepository.Delete(department);
+            bool result = await _departmentRepository.Delete(department);
 
             if (result)
                 return department;
             else
                 return StatusCode(500);
-        }
-
-        private bool DepartmentExists(long id)
-        {
-            return _context.Departments.Any(e => e.Id == id);
         }
     }
 }

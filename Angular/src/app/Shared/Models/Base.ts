@@ -1,7 +1,8 @@
 
 export class Base{
-    Id : number;
-    CreateDate : Date;
-    UpdatedDate : Date;
-    IsDelete : false;
+    Id? : number;
+    CreateDate? : Date;
+    UpdatedDate? : Date;
+    IsDelete? : false;
+    // URL : string;
 }

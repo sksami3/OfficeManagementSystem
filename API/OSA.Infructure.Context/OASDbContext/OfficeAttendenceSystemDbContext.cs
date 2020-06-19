@@ -25,7 +25,16 @@ namespace OSA.Infructure.Context.OASDbContext
                    .SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
                 var connectionString = configuration.GetConnectionString("OfficeAttendenceSystemDbContext");
                 optionsBuilder.UseSqlServer(connectionString);
+
+                optionsBuilder.UseLazyLoadingProxies();
             }
         }
+        #region For older .net core versions, it couldn't identify composit keys and tried to add identity on composite keys, that code is written to avoid that 
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Department>().HasKey(a => a.Id);
+        //    modelBuilder.Entity<Employee>().HasKey(a => new { a.DepartmentId, a.Id });
+        //}
+        #endregion
     }
 }
