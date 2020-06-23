@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DepartmentHeaderComponent } from './department-header.component';
+import { CommonSidebarComponent } from './common-sidebar.component';
 
-describe('DepartmentHeaderComponent', () => {
-  let component: DepartmentHeaderComponent;
-  let fixture: ComponentFixture<DepartmentHeaderComponent>;
+describe('CommonSidebarComponent', () => {
+  let component: CommonSidebarComponent;
+  let fixture: ComponentFixture<CommonSidebarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DepartmentHeaderComponent ]
+      declarations: [ CommonSidebarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DepartmentHeaderComponent);
+    fixture = TestBed.createComponent(CommonSidebarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
