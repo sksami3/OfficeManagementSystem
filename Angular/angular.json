@@ -29,6 +29,7 @@
                             "src/assets/vendor/fontawesome-free/css/all.min.css",
                             "node_modules/ngx-toastr/toastr.css",
                             "node_modules/datatables.net-dt/css/jquery.dataTables.css"
+                            
                         ],
                         "scripts": [
                             "src/assets/vendor/jquery/jquery.min.js",

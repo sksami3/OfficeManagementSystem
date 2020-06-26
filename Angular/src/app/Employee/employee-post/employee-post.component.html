@@ -1,95 +1,96 @@
-<div class="form-container empDiv col-md-6" id="empDiv">
-    <!--style="float: inline-start;" -->
-    <form [formGroup]="employeeForm" (ngSubmit)="AddEmployee(employeeForm.value)">
-        <div id="formEmp">
-            <div class="form-group">
-                <div class="row">
-                    <label class="col-md-4 control-label">Select Departmet: </label>
-                    <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
-                    <select class="form-control col-md-6" formControlName="departmentList" (change)="onChange($event.target.value)">
-                        <option id="selectP" value="" [selected]="true">--Select Department--</option>
-                        <option *ngFor="let d of deptnames " [ngValue]="d.id ">
-                            {{d.name}}
-                        </option>
-                    </select>
-                    <span *ngIf="!employeeForm.controls['departmentList'].valid && (employeeForm.controls['departmentList'].touched || employeeForm.controls['departmentList'].dirty)" class="alert alert-danger">Must select department</span>
+<div class="container-fluid">
+    <div class="col-md-8 customCenter">
+        <form [formGroup]="employeeForm" (ngSubmit)="AddEmployee(employeeForm.value)">
+            <div id="formEmp">
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-md-4 control-label">Select Departmet: </label>
+                        <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
+                        <select class="form-control col-md-6" formControlName="departmentList" (change)="onChange($event.target.value)">
+                            <option id="selectP" value="" [selected]="true">--Select Department--</option>
+                            <option *ngFor="let d of deptnames " [ngValue]="d.id ">
+                                {{d.name}}
+                            </option>
+                        </select>
+                        <span *ngIf="!employeeForm.controls['departmentList'].valid && (employeeForm.controls['departmentList'].touched || employeeForm.controls['departmentList'].dirty)" class="alert alert-danger">Must select department</span>
+                    </div>
+                </div>
+                <div class="form-group col-md-8" class="empInfoDiv " [@toggleHeight]="isShow ">
+                    <fieldset class="border p-2 ">
+                        <legend class="w-auto ">Employee Information</legend>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-4 control-label">Name: </label>
+                                <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
+                                <input type="text" class="form-control col-md-6" formControlName="name" />
+                                <span *ngIf="!employeeForm.controls['name'].valid && (employeeForm.controls['name'].touched)" class="alert alert-danger">Name {{isRequiredValidator}}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-4 control-label">Email: </label>
+                                <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
+                                <input type="text" class="form-control col-md-6" formControlName="email" />
+                                <span *ngIf="!employeeForm.controls['email'].valid && (employeeForm.controls['email'].touched)" class="alert alert-danger">Valid Email {{isRequiredValidator}}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-4 control-label">Contact Number: </label>
+                                <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
+                                <input type="number" class="form-control col-md-6" formControlName="contactnumber" />
+                                <span *ngIf="!employeeForm.controls['contactnumber'].valid && (employeeForm.controls['contactnumber'].touched)" class="alert alert-danger">Valid Contact Number {{isRequiredValidator}}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-4 control-label">Date Of Birth: </label>
+                                <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
+                                <!-- <input type="text" class="form-control col-md-6" formControlName="dob" /> -->
+                                <input class="form-control col-md-6" readonly ngbDatepicker name="datePicker1" (click)="datePicker1.toggle(); closeDatepicker(datePicker2)" #datePicker1="ngbDatepicker" formControlName="dob" (dateSelect)="onDateSelect($event)" placeholder="dd-mm-yyyy">
+                                <!-- <ngb-timepicker formControlName="dob" meridian="meridian"></ngb-timepicker> -->
+                                <span *ngIf="!employeeForm.controls['dob'].valid && (employeeForm.controls['dob'].touched)" class="alert alert-danger">Date of birth {{isRequiredValidator}}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-4 control-label">Age: </label>
+                                <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
+                                <input type="text" readonly disabled class="form-control col-md-6" formControlName="age" />
+                                <span *ngIf="!employeeForm.controls['age'].valid && (employeeForm.controls['age'].touched)" class="alert alert-danger">Valid Contact Number {{isRequiredValidator}}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-4 control-label">Joining Date: </label>
+                                <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
+                                <!-- <input type="text" class="form-control col-md-6" formControlName="joiningdate" /> -->
+                                <input class="form-control col-md-6" readonly ngbDatepicker name="datepicker2" (click)="datePicker2.toggle(); closeDatepicker(datePicker1)" #datePicker2="ngbDatepicker" formControlName="joiningdate" placeholder="dd-mm-yyyy">
+                                <span *ngIf="!employeeForm.controls['joiningdate'].valid && (employeeForm.controls['joiningdate'].touched)" class="alert alert-danger">Valid joining date {{isRequiredValidator}}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-4 control-label">Salary: </label>
+                                <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
+                                <input type="number" class="form-control col-md-6" formControlName="salary" />
+                                <span *ngIf="!employeeForm.controls['salary'].valid && (employeeForm.controls['salary'].touched)" class="alert alert-danger">Valid Contact Number {{isRequiredValidator}}</span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-gorup ">
+                    <input type="submit" value="Submit Form" [disabled]="!employeeForm.valid ">
                 </div>
             </div>
-            <div class="form-group col-md-8" class="empInfoDiv " [@toggleHeight]="isShow ">
-                <fieldset class="border p-2 ">
-                    <legend class="w-auto ">Employee Information</legend>
-
-                    <div class="form-group">
-                        <div class="row">
-                            <label class="col-md-4 control-label">Name: </label>
-                            <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
-                            <input type="text" class="form-control col-md-6" formControlName="name" />
-                            <span *ngIf="!employeeForm.controls['name'].valid && (employeeForm.controls['name'].touched)" class="alert alert-danger">Name {{isRequiredValidator}}</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="row">
-                            <label class="col-md-4 control-label">Email: </label>
-                            <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
-                            <input type="text" class="form-control col-md-6" formControlName="email" />
-                            <span *ngIf="!employeeForm.controls['email'].valid && (employeeForm.controls['email'].touched)" class="alert alert-danger">Valid Email {{isRequiredValidator}}</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="row">
-                            <label class="col-md-4 control-label">Contact Number: </label>
-                            <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
-                            <input type="number" class="form-control col-md-6" formControlName="contactnumber" />
-                            <span *ngIf="!employeeForm.controls['contactnumber'].valid && (employeeForm.controls['contactnumber'].touched)" class="alert alert-danger">Valid Contact Number {{isRequiredValidator}}</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="row">
-                            <label class="col-md-4 control-label">Date Of Birth: </label>
-                            <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
-                            <!-- <input type="text" class="form-control col-md-6" formControlName="dob" /> -->
-                            <input class="form-control col-md-6" readonly ngbDatepicker name="datePicker1" (click)="datePicker1.toggle(); closeDatepicker(datePicker2)" #datePicker1="ngbDatepicker" formControlName="dob" (dateSelect)="onDateSelect($event)" placeholder="dd-mm-yyyy">
-                            <!-- <ngb-timepicker formControlName="dob" meridian="meridian"></ngb-timepicker> -->
-                            <span *ngIf="!employeeForm.controls['dob'].valid && (employeeForm.controls['dob'].touched)" class="alert alert-danger">Date of birth {{isRequiredValidator}}</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="row">
-                            <label class="col-md-4 control-label">Age: </label>
-                            <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
-                            <input type="text" readonly disabled class="form-control col-md-6" formControlName="age" />
-                            <span *ngIf="!employeeForm.controls['age'].valid && (employeeForm.controls['age'].touched)" class="alert alert-danger">Valid Contact Number {{isRequiredValidator}}</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="row">
-                            <label class="col-md-4 control-label">Joining Date: </label>
-                            <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
-                            <!-- <input type="text" class="form-control col-md-6" formControlName="joiningdate" /> -->
-                            <input class="form-control col-md-6" readonly ngbDatepicker name="datepicker2" (click)="datePicker2.toggle(); closeDatepicker(datePicker1)" #datePicker2="ngbDatepicker" formControlName="joiningdate" placeholder="dd-mm-yyyy">
-                            <span *ngIf="!employeeForm.controls['joiningdate'].valid && (employeeForm.controls['joiningdate'].touched)" class="alert alert-danger">Valid joining date {{isRequiredValidator}}</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="row">
-                            <label class="col-md-4 control-label">Salary: </label>
-                            <!-- <select formControlName="departmentList" ng-options="x for x in deptnames">--Select--</select> -->
-                            <input type="number" class="form-control col-md-6" formControlName="salary" />
-                            <span *ngIf="!employeeForm.controls['salary'].valid && (employeeForm.controls['salary'].touched)" class="alert alert-danger">Valid Contact Number {{isRequiredValidator}}</span>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-
-            <div class="form-gorup ">
-                <input type="submit" value="Submit Form" [disabled]="!employeeForm.valid ">
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>

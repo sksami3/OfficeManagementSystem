@@ -1,8 +1,7 @@
-#empDiv {
-    float: inline-start;
-    /* clear: left; */
-}
-
-animation {
-    display: block;
+.customCenter {
+    /* height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+    margin-left: 15%;
 }

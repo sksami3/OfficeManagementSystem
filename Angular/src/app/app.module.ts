@@ -26,6 +26,9 @@ import { DataTablesModule } from 'angular-datatables';
 import { EmployeeListComponent } from './Employee/employee-list/employee-list.component';
 import { CommonHeaderComponent } from './Home/common-header/common-header.component';
 import { CommonSidebarComponent } from './Home/common-sidebar/common-sidebar.component';
+import { CommonFooterComponent } from './Home/common-footer/common-footer.component';
+import { EscapeHtmlPipe } from './Shared/Utility/keep-html.pipe';
+import { MainViewComponent } from './Home/main-view/main-view.component';
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import { CommonSidebarComponent } from './Home/common-sidebar/common-sidebar.com
     EmployeePostComponent,
     EmployeeListComponent,
     CommonHeaderComponent,
-    CommonSidebarComponent       
+    CommonSidebarComponent,
+    CommonFooterComponent,
+    EscapeHtmlPipe,
+    MainViewComponent       
   ],
   imports: [
     BrowserModule,
