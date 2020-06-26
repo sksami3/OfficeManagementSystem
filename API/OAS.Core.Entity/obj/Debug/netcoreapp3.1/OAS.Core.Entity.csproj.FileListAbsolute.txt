@@ -9,8 +9,6 @@ D:\Angular\OfficeAttendenceSystem\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OAS.Co
 D:\Angular\OfficeAttendenceSystem\OAS.Core.Entity\bin\Debug\netcoreapp3.1\OAS.Core.Entity.runtimeconfig.json
 D:\Angular\OfficeAttendenceSystem\OAS.Core.Entity\bin\Debug\netcoreapp3.1\OAS.Core.Entity.runtimeconfig.dev.json
 D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\bin\Debug\netcoreapp3.1\OAS.Core.Entity.deps.json
-D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\bin\Debug\netcoreapp3.1\OAS.Core.Entity.runtimeconfig.json
-D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\bin\Debug\netcoreapp3.1\OAS.Core.Entity.runtimeconfig.dev.json
 D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\bin\Debug\netcoreapp3.1\OAS.Core.Entity.dll
 D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\bin\Debug\netcoreapp3.1\OAS.Core.Entity.pdb
 D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OAS.Core.Entity.AssemblyInfoInputs.cache
@@ -18,3 +16,5 @@ D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OA
 D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OAS.Core.Entity.dll
 D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OAS.Core.Entity.pdb
 D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\obj\Debug\netcoreapp3.1\OAS.Core.Entity.csprojAssemblyReference.cache
+D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\bin\Debug\netcoreapp3.1\OAS.Core.Entity.runtimeconfig.json
+D:\Angular\OfficeAttendenceSystem\API\OAS.Core.Entity\bin\Debug\netcoreapp3.1\OAS.Core.Entity.runtimeconfig.dev.json

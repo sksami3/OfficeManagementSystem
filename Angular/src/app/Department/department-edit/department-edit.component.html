@@ -1,4 +1,4 @@
-<div class="container-fluid col-md-6" style="margin-right: 160px;">
+<div class="container-fluid col-md-6">
     <!-- <form #departmentEditForm="ngForm" (ngSubmit)="update(departmentEditForm.value)"> -->
     <form [formGroup]="departmentEditForm" (ngSubmit)="update(departmentEditForm.value)">
         <div class="form-group">
@@ -19,3 +19,4 @@
 
 </div>
 <a href="javascript: void(0);" [routerLink]="['/departments']">Go to List</a>
+
