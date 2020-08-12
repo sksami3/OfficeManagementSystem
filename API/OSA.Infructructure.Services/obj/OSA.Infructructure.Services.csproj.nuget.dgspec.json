@@ -71,12 +71,12 @@
         }
       }
     },
-    "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Interface.csproj": {
+    "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Interface.csproj",
-        "projectName": "OSA.Core.Interface",
-        "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Interface.csproj",
+        "projectUniqueName": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Repository.csproj",
+        "projectName": "OSA.Core.Repository",
+        "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Repository.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
         "outputPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\obj\\",
         "projectStyle": "PackageReference",
@@ -171,11 +171,11 @@
               "D:\\Angular\\OfficeAttendenceSystem\\API\\OAS.Core.Entity\\OAS.Core.Entity.csproj": {
                 "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OAS.Core.Entity\\OAS.Core.Entity.csproj"
               },
-              "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Interface.csproj": {
-                "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Interface.csproj"
+              "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Repository.csproj": {
+                "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Repository.csproj"
               },
-              "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\OSA.Infructure.Context.csproj": {
-                "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\OSA.Infructure.Context.csproj"
+              "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\OSA.Infructure.Persistence.csproj": {
+                "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\OSA.Infructure.Persistence.csproj"
               }
             }
           }
@@ -227,12 +227,12 @@
         }
       }
     },
-    "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\OSA.Infructure.Context.csproj": {
+    "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\OSA.Infructure.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\OSA.Infructure.Context.csproj",
-        "projectName": "OSA.Infructure.Context",
-        "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\OSA.Infructure.Context.csproj",
+        "projectUniqueName": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\OSA.Infructure.Persistence.csproj",
+        "projectName": "OSA.Infructure.Persistence",
+        "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\OSA.Infructure.Persistence.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
         "outputPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\obj\\",
         "projectStyle": "PackageReference",

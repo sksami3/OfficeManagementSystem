@@ -1,0 +1,13 @@
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructure.Context\bin\Debug\netcoreapp3.1\OSA.Infructure.Persistence.deps.json
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructure.Context\bin\Debug\netcoreapp3.1\OSA.Infructure.Persistence.runtimeconfig.json
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructure.Context\bin\Debug\netcoreapp3.1\OSA.Infructure.Persistence.runtimeconfig.dev.json
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructure.Context\bin\Debug\netcoreapp3.1\OSA.Infructure.Persistence.dll
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructure.Context\bin\Debug\netcoreapp3.1\OSA.Infructure.Persistence.pdb
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructure.Context\bin\Debug\netcoreapp3.1\OAS.Core.Entity.dll
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructure.Context\bin\Debug\netcoreapp3.1\OAS.Core.Entity.pdb
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructure.Context\obj\Debug\netcoreapp3.1\OSA.Infructure.Persistence.csprojAssemblyReference.cache
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructure.Context\obj\Debug\netcoreapp3.1\OSA.Infructure.Persistence.AssemblyInfoInputs.cache
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructure.Context\obj\Debug\netcoreapp3.1\OSA.Infructure.Persistence.AssemblyInfo.cs
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructure.Context\obj\Debug\netcoreapp3.1\OSA.Infructure.Persistence.csproj.CopyComplete
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructure.Context\obj\Debug\netcoreapp3.1\OSA.Infructure.Persistence.dll
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructure.Context\obj\Debug\netcoreapp3.1\OSA.Infructure.Persistence.pdb

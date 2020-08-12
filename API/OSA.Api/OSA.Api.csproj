@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OSA.Core.Interface\OSA.Core.Interface.csproj" />
     <ProjectReference Include="..\OSA.Infructructure.Services\OSA.Infructructure.Services.csproj" />
   </ItemGroup>
 

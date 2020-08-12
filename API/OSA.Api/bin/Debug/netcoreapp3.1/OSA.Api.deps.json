@@ -32,7 +32,6 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "3.1.1",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.1",
-          "OSA.Core.Interface": "1.0.0",
           "OSA.Infructructure.Services": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -2710,16 +2709,16 @@
           "OAS.Core.Entity.dll": {}
         }
       },
-      "OSA.Core.Interface/1.0.0": {
+      "OSA.Core.Repository/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2",
           "OAS.Core.Entity": "1.0.0"
         },
         "runtime": {
-          "OSA.Core.Interface.dll": {}
+          "OSA.Core.Repository.dll": {}
         },
         "compile": {
-          "OSA.Core.Interface.dll": {}
+          "OSA.Core.Repository.dll": {}
         }
       },
       "OSA.Infructructure.Services/1.0.0": {
@@ -2727,8 +2726,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2",
           "Microsoft.Extensions.Options": "3.1.2",
           "OAS.Core.Entity": "1.0.0",
-          "OSA.Core.Interface": "1.0.0",
-          "OSA.Infructure.Context": "1.0.0",
+          "OSA.Core.Repository": "1.0.0",
+          "OSA.Infructure.Persistence": "1.0.0",
           "QuickPick.One": "3.4.18143.6"
         },
         "runtime": {
@@ -2738,7 +2737,7 @@
           "OSA.Infructructure.Services.dll": {}
         }
       },
-      "OSA.Infructure.Context/1.0.0": {
+      "OSA.Infructure.Persistence/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "3.1.2",
           "Microsoft.EntityFrameworkCore.Proxies": "3.1.1",
@@ -2748,10 +2747,10 @@
           "OAS.Core.Entity": "1.0.0"
         },
         "runtime": {
-          "OSA.Infructure.Context.dll": {}
+          "OSA.Infructure.Persistence.dll": {}
         },
         "compile": {
-          "OSA.Infructure.Context.dll": {}
+          "OSA.Infructure.Persistence.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -5728,7 +5727,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "OSA.Core.Interface/1.0.0": {
+    "OSA.Core.Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -5738,7 +5737,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "OSA.Infructure.Context/1.0.0": {
+    "OSA.Infructure.Persistence/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

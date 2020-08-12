@@ -14,7 +14,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using OSA.Core.Interface;
+using OSA.Core.Repository;
 using OSA.Infructructure.Services;
+using OSA.Infructructure.Services.Services.Implementations;
+using OSA.Infructructure.Services.Services.Interfaces;
 using OSA.Infructure.Context.OASDbContext;
 
 namespace OSA.Api
@@ -37,8 +40,9 @@ namespace OSA.Api
 
             services.AddControllers();
 
-            services.AddTransient<IDepartmentRepository, DepartmentService>();
-            services.AddTransient<IEmployeeRepository, EmployeeService>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IDepartmentService, DepartmentService>();
+            services.AddTransient<IEmployeeService, EmployeeService>();
             services.AddControllers().AddNewtonsoftJson();
 
             //CROS

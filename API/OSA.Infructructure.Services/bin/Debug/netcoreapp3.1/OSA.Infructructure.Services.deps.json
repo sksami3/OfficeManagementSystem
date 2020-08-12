@@ -12,8 +12,8 @@
           "Microsoft.EntityFrameworkCore.Tools": "3.1.2",
           "Microsoft.Extensions.Options": "3.1.2",
           "OAS.Core.Entity": "1.0.0",
-          "OSA.Core.Interface": "1.0.0",
-          "OSA.Infructure.Context": "1.0.0",
+          "OSA.Core.Repository": "1.0.0",
+          "OSA.Infructure.Persistence": "1.0.0",
           "QuickPick.One": "3.4.18143.6"
         },
         "runtime": {
@@ -1505,16 +1505,16 @@
           "OAS.Core.Entity.dll": {}
         }
       },
-      "OSA.Core.Interface/1.0.0": {
+      "OSA.Core.Repository/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2",
           "OAS.Core.Entity": "1.0.0"
         },
         "runtime": {
-          "OSA.Core.Interface.dll": {}
+          "OSA.Core.Repository.dll": {}
         }
       },
-      "OSA.Infructure.Context/1.0.0": {
+      "OSA.Infructure.Persistence/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "3.1.2",
           "Microsoft.EntityFrameworkCore.Proxies": "3.1.1",
@@ -1524,7 +1524,7 @@
           "OAS.Core.Entity": "1.0.0"
         },
         "runtime": {
-          "OSA.Infructure.Context.dll": {}
+          "OSA.Infructure.Persistence.dll": {}
         }
       }
     }
@@ -2576,12 +2576,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "OSA.Core.Interface/1.0.0": {
+    "OSA.Core.Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "OSA.Infructure.Context/1.0.0": {
+    "OSA.Infructure.Persistence/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

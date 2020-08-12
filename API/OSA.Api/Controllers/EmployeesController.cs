@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Transactions;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using OAS.Core.Entity;
 using OAS.Core.Entity.ViewModel;
-using OSA.Core.Interface;
 using OSA.Api.Helper;
+using OSA.Infructructure.Services.Services.Interfaces;
 
 namespace OSA.Api.Controllers
 {
@@ -20,12 +14,12 @@ namespace OSA.Api.Controllers
     public class EmployeesController : ControllerBase
     {
         #region Initialization
-        private readonly IEmployeeRepository _employeeRepository;
+        private readonly IEmployeeService _employeeService;
         private readonly HelperClass _helper;
 
-        public EmployeesController(IEmployeeRepository employeeRepository)
+        public EmployeesController(IEmployeeService employeeService)
         {
-            this._employeeRepository = employeeRepository;
+            this._employeeService = employeeService;
             _helper = new HelperClass();
         }
         #endregion
@@ -33,9 +27,9 @@ namespace OSA.Api.Controllers
 
         // GET: api/Employees
         [HttpGet]
-        public async Task<List<Employee>> GetEmployees()
+        public async Task<IEnumerable<Employee>> GetEmployees()
         {
-            return await _employeeRepository.GetAll();
+            return await _employeeService.GetAll();
         }
 
         [HttpPost("GetEmployeesPost")]
@@ -47,7 +41,7 @@ namespace OSA.Api.Controllers
                 string searchValue = "";
                 _helper.GetFilterValues(something, ref start, ref length, ref searchValue);
 
-                var result = await _employeeRepository.GetEmployeesWithDeptName(start, length,searchValue);
+                var result = await _employeeService.GetEmployeesWithDeptName(start, length,searchValue);
 
                 return result;
             }
@@ -63,7 +57,7 @@ namespace OSA.Api.Controllers
         public async Task<ActionResult<Employee>> GetEmployee(long id)
         {
             //var employee = await _context.Employees.FindAsync(id);
-            var employee = await _employeeRepository.FindById(id);
+            var employee = await _employeeService.FindById(id);
 
             if (employee == null)
             {
@@ -91,7 +85,7 @@ namespace OSA.Api.Controllers
 
             try
             {
-                bool isEdited = await _employeeRepository.Update(employee);
+                bool isEdited = await _employeeService.Update(employee);
             }
             catch (Exception e)
             {
@@ -126,7 +120,7 @@ namespace OSA.Api.Controllers
             bool isSuccess = false;
             try
             {
-                isSuccess = await _employeeRepository.Insert(employee);
+                isSuccess = await _employeeService.Insert(employee);
             }
             catch (Exception e)
             {
@@ -143,13 +137,13 @@ namespace OSA.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Employee>> DeleteEmployee(long id)
         {
-            var employee = await _employeeRepository.FindById(id);
+            var employee = await _employeeService.FindById(id);
             if (employee == null)
             {
                 return NotFound();
             }
 
-            bool result = await _employeeRepository.Delete(employee);
+            bool result = await _employeeService.Delete(employee);
 
             if (result)
                 return employee;
@@ -160,7 +154,7 @@ namespace OSA.Api.Controllers
 
         private bool EmployeeExists(long id)
         {
-            if (_employeeRepository.FindById(id) == null)
+            if (_employeeService.FindById(id) == null)
                 return true;
             else
                 return false;
