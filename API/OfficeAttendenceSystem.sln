@@ -11,15 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OAS.UI", "OAS.UI", "{C36045
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OAS.Core.Entity", "OAS.Core.Entity\OAS.Core.Entity.csproj", "{F5C3F65C-BF17-4F88-A0E4-687A1A6DB35E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSA.Core.Interface", "OSA.Core.Interface\OSA.Core.Interface.csproj", "{6DFB7F9C-73D1-4FFA-87FB-60EB4E8FD339}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSA.Core.Repository", "OSA.Core.Interface\OSA.Core.Repository.csproj", "{6DFB7F9C-73D1-4FFA-87FB-60EB4E8FD339}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSA.Infructure.Context", "OSA.Infructure.Context\OSA.Infructure.Context.csproj", "{89D57928-948F-42D4-8DFD-7B7313E331DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSA.Infructure.Persistence", "OSA.Infructure.Context\OSA.Infructure.Persistence.csproj", "{89D57928-948F-42D4-8DFD-7B7313E331DC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSA.Infructructure.Services", "OSA.Infructructure.Services\OSA.Infructructure.Services.csproj", "{2FE97F81-16A4-4BCE-BB67-D2AC31A67088}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OAS.Api", "OAS.Api", "{0CE1FEB5-5E33-4F3B-80C4-0072D71C71D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSA.Api", "OSA.Api\OSA.Api.csproj", "{D353DBE3-F5C6-489C-84D0-D7EB0AF9AAE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSA.Api", "OSA.Api\OSA.Api.csproj", "{D353DBE3-F5C6-489C-84D0-D7EB0AF9AAE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

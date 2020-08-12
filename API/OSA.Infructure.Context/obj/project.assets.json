@@ -7144,9 +7144,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\OSA.Infructure.Context.csproj",
-      "projectName": "OSA.Infructure.Context",
-      "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\OSA.Infructure.Context.csproj",
+      "projectUniqueName": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\OSA.Infructure.Persistence.csproj",
+      "projectName": "OSA.Infructure.Persistence",
+      "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\OSA.Infructure.Persistence.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
       "outputPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructure.Context\\obj\\",
       "projectStyle": "PackageReference",

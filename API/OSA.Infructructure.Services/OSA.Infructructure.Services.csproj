@@ -16,8 +16,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OAS.Core.Entity\OAS.Core.Entity.csproj" />
-    <ProjectReference Include="..\OSA.Core.Interface\OSA.Core.Interface.csproj" />
-    <ProjectReference Include="..\OSA.Infructure.Context\OSA.Infructure.Context.csproj" />
+    <ProjectReference Include="..\OSA.Core.Interface\OSA.Core.Repository.csproj" />
+    <ProjectReference Include="..\OSA.Infructure.Context\OSA.Infructure.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

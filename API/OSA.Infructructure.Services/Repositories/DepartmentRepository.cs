@@ -1,21 +1,26 @@
 ﻿using OAS.Core.Entity;
 using OAS.Core.Entity.ViewModel;
-using OSA.Core.Interface;
-using OSA.Infructructure.Services.Base;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+using OSA.Core.Repository.Repositories;
+using OSA.Infructructure.Services.Repositories.Base;
+using OSA.Infructure.Context.OASDbContext;
 
-namespace OSA.Infructructure.Services
+namespace OSA.Infructructure.Services.Repositories
 {
-    public class DepartmentService : BaseService<Department>, IDepartmentRepository
+    public class DepartmentRepository : BaseRepository<Department>, IDepartmentRepository
     {
+        private OfficeAttendenceSystemDbContext _context;
+        internal DepartmentRepository(OfficeAttendenceSystemDbContext context)
+            : base(context)
+        {
+            _context = context;
+        }
         public async Task<IList<DepartmentWiseEmployeeStatisticsVM>> GetDepartmertStat()
         {
-            var employee = _DbContextForOtherUse.Set<Employee>().ToList();
+            var employee = _context.Set<Employee>().ToList();
             var t = from dept in _innerDB.ToList()
                     join emp in employee on dept.Id equals emp.Department.Id
                     select new { dept.Id,dept.Name } into x
@@ -27,7 +32,6 @@ namespace OSA.Infructructure.Services
                         //Time = g.Sum(i => i.Zeit)
                     };
             return await Task.FromResult(t.ToList());// await t.ToList();
-            //throw new NotImplementedException();
         }
     }
 }

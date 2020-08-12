@@ -4971,9 +4971,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Interface.csproj",
-      "projectName": "OSA.Core.Interface",
-      "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Interface.csproj",
+      "projectUniqueName": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Repository.csproj",
+      "projectName": "OSA.Core.Repository",
+      "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Repository.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
       "outputPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\obj\\",
       "projectStyle": "PackageReference",

@@ -8,8 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OAS.Core.Entity;
 using OAS.Core.Entity.ViewModel;
-using OSA.Core.Interface;
-using OSA.Infructure.Context.OASDbContext;
+using OSA.Infructructure.Services.Services.Interfaces;
 
 namespace OSA.Api.Controllers
 {
@@ -18,23 +17,23 @@ namespace OSA.Api.Controllers
     //[EnableCors("AllowOrigin")]
     public class DepartmentsController : ControllerBase
     {
-        private readonly IDepartmentRepository _departmentRepository;
+        private readonly IDepartmentService _departmentService;
 
-        public DepartmentsController(IDepartmentRepository departmentRepository)
+        public DepartmentsController(IDepartmentService departmentService)
         {
-            this._departmentRepository = departmentRepository;
+            this._departmentService = departmentService;
         }
 
         // GET: api/Departments
         [HttpGet]
-        public async Task<List<Department>> GetDepartments()
+        public async Task<IEnumerable<Department>> GetDepartments()
         {
-            return await _departmentRepository.GetAll(); 
+            return await _departmentService.GetAll(); 
         }
         [HttpGet("GetDepartmertStat")]
         public async Task<List<DepartmentWiseEmployeeStatisticsVM>> GetDepartmertStat()
         {
-            IList<DepartmentWiseEmployeeStatisticsVM> result = await _departmentRepository.GetDepartmertStat();           
+            IList<DepartmentWiseEmployeeStatisticsVM> result = await _departmentService.GetDepartmertStat();           
             return result.ToList();
         }
 
@@ -43,7 +42,7 @@ namespace OSA.Api.Controllers
         [HttpGet("{id}")]
         public async Task<Department> GetDepartment(long id)
         {
-            Task<Department> department = _departmentRepository.FindById(id);
+            Task<Department> department = _departmentService.FindById(id);
             Department dept = await department;
 
             if (dept == null)
@@ -60,7 +59,7 @@ namespace OSA.Api.Controllers
         public async Task<IActionResult> PutDepartment(long id, Department department)
         {
             Department departmentFromDb;
-            departmentFromDb = await _departmentRepository.FindById(id);
+            departmentFromDb = await _departmentService.FindById(id);
             departmentFromDb.Name = department.Name;
             bool isSuccess = false;
             if (id != department.Id)
@@ -69,12 +68,12 @@ namespace OSA.Api.Controllers
             }
             try
             {
-                Task<bool> result = _departmentRepository.Update(departmentFromDb);
+                Task<bool> result = _departmentService.Update(departmentFromDb);
                 isSuccess = await result;
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (_departmentRepository.FindById(id) != null)
+                if (_departmentService.FindById(id) != null)
                 {
                     return NotFound();
                 }
@@ -96,7 +95,7 @@ namespace OSA.Api.Controllers
         [HttpPost]
         public ActionResult<Department> PostDepartment(Department department)
         {
-            _departmentRepository.Insert(department);
+            _departmentService.Insert(department);
             return CreatedAtAction("GetDepartment", new { id = department.Id }, department);
         }
 
@@ -104,13 +103,13 @@ namespace OSA.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Department>> DeleteDepartment(long id)
         {
-            var department = await _departmentRepository.FindById(id);
+            var department = await _departmentService.FindById(id);
             if (department == null)
             {
                 return NotFound();
             }
 
-            bool result = await _departmentRepository.Delete(department);
+            bool result = await _departmentService.Delete(department);
 
             if (result)
                 return department;

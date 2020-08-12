@@ -327,13 +327,9 @@ D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\runtimes\u
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\OAS.Core.Entity.dll
-D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\OSA.Core.Interface.dll
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\OSA.Infructructure.Services.dll
-D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\OSA.Infructure.Context.dll
-D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\OSA.Core.Interface.pdb
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\OSA.Infructructure.Services.pdb
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\OAS.Core.Entity.pdb
-D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\OSA.Infructure.Context.pdb
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.csprojAssemblyReference.cache
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\staticwebassets\OSA.Api.StaticWebAssets.Manifest.cache
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\staticwebassets\OSA.Api.StaticWebAssets.xml
@@ -346,3 +342,7 @@ D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.pd
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\Castle.Core.dll
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
 D:\Angular\OfficeAttendenceSystem\API\OSA.Api\obj\Debug\netcoreapp3.1\OSA.Api.MvcApplicationPartsAssemblyInfo.cache
+D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\OSA.Core.Repository.dll
+D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\OSA.Core.Repository.pdb
+D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\OSA.Infructure.Persistence.dll
+D:\Angular\OfficeAttendenceSystem\API\OSA.Api\bin\Debug\netcoreapp3.1\OSA.Infructure.Persistence.pdb

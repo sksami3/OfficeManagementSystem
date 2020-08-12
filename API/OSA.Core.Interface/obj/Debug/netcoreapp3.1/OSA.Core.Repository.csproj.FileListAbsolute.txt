@@ -1,0 +1,13 @@
+D:\Angular\OfficeAttendenceSystem\API\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OSA.Core.Repository.deps.json
+D:\Angular\OfficeAttendenceSystem\API\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OSA.Core.Repository.runtimeconfig.json
+D:\Angular\OfficeAttendenceSystem\API\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OSA.Core.Repository.runtimeconfig.dev.json
+D:\Angular\OfficeAttendenceSystem\API\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OSA.Core.Repository.dll
+D:\Angular\OfficeAttendenceSystem\API\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OSA.Core.Repository.pdb
+D:\Angular\OfficeAttendenceSystem\API\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OAS.Core.Entity.dll
+D:\Angular\OfficeAttendenceSystem\API\OSA.Core.Interface\bin\Debug\netcoreapp3.1\OAS.Core.Entity.pdb
+D:\Angular\OfficeAttendenceSystem\API\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Repository.csprojAssemblyReference.cache
+D:\Angular\OfficeAttendenceSystem\API\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Repository.AssemblyInfoInputs.cache
+D:\Angular\OfficeAttendenceSystem\API\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Repository.AssemblyInfo.cs
+D:\Angular\OfficeAttendenceSystem\API\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Repository.csproj.CopyComplete
+D:\Angular\OfficeAttendenceSystem\API\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Repository.dll
+D:\Angular\OfficeAttendenceSystem\API\OSA.Core.Interface\obj\Debug\netcoreapp3.1\OSA.Core.Repository.pdb

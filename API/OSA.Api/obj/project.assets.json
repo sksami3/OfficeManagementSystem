@@ -3118,7 +3118,7 @@
           "bin/placeholder/OAS.Core.Entity.dll": {}
         }
       },
-      "OSA.Core.Interface/1.0.0": {
+      "OSA.Core.Repository/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
@@ -3126,10 +3126,10 @@
           "OAS.Core.Entity": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/OSA.Core.Interface.dll": {}
+          "bin/placeholder/OSA.Core.Repository.dll": {}
         },
         "runtime": {
-          "bin/placeholder/OSA.Core.Interface.dll": {}
+          "bin/placeholder/OSA.Core.Repository.dll": {}
         }
       },
       "OSA.Infructructure.Services/1.0.0": {
@@ -3139,8 +3139,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2",
           "Microsoft.Extensions.Options": "3.1.2",
           "OAS.Core.Entity": "1.0.0",
-          "OSA.Core.Interface": "1.0.0",
-          "OSA.Infructure.Context": "1.0.0",
+          "OSA.Core.Repository": "1.0.0",
+          "OSA.Infructure.Persistence": "1.0.0",
           "QuickPick.One": "3.4.18143.6"
         },
         "compile": {
@@ -3150,7 +3150,7 @@
           "bin/placeholder/OSA.Infructructure.Services.dll": {}
         }
       },
-      "OSA.Infructure.Context/1.0.0": {
+      "OSA.Infructure.Persistence/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
@@ -3162,10 +3162,10 @@
           "OAS.Core.Entity": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/OSA.Infructure.Context.dll": {}
+          "bin/placeholder/OSA.Infructure.Persistence.dll": {}
         },
         "runtime": {
-          "bin/placeholder/OSA.Infructure.Context.dll": {}
+          "bin/placeholder/OSA.Infructure.Persistence.dll": {}
         }
       }
     }
@@ -9556,20 +9556,20 @@
       "path": "../OAS.Core.Entity/OAS.Core.Entity.csproj",
       "msbuildProject": "../OAS.Core.Entity/OAS.Core.Entity.csproj"
     },
-    "OSA.Core.Interface/1.0.0": {
+    "OSA.Core.Repository/1.0.0": {
       "type": "project",
-      "path": "../OSA.Core.Interface/OSA.Core.Interface.csproj",
-      "msbuildProject": "../OSA.Core.Interface/OSA.Core.Interface.csproj"
+      "path": "../OSA.Core.Interface/OSA.Core.Repository.csproj",
+      "msbuildProject": "../OSA.Core.Interface/OSA.Core.Repository.csproj"
     },
     "OSA.Infructructure.Services/1.0.0": {
       "type": "project",
       "path": "../OSA.Infructructure.Services/OSA.Infructructure.Services.csproj",
       "msbuildProject": "../OSA.Infructructure.Services/OSA.Infructructure.Services.csproj"
     },
-    "OSA.Infructure.Context/1.0.0": {
+    "OSA.Infructure.Persistence/1.0.0": {
       "type": "project",
-      "path": "../OSA.Infructure.Context/OSA.Infructure.Context.csproj",
-      "msbuildProject": "../OSA.Infructure.Context/OSA.Infructure.Context.csproj"
+      "path": "../OSA.Infructure.Context/OSA.Infructure.Persistence.csproj",
+      "msbuildProject": "../OSA.Infructure.Context/OSA.Infructure.Persistence.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9582,7 +9582,6 @@
       "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.1",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.2",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.1",
-      "OSA.Core.Interface >= 1.0.0",
       "OSA.Infructructure.Services >= 1.0.0"
     ]
   },
@@ -9616,9 +9615,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Interface.csproj": {
-              "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Core.Interface\\OSA.Core.Interface.csproj"
-            },
             "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructructure.Services\\OSA.Infructructure.Services.csproj": {
               "projectPath": "D:\\Angular\\OfficeAttendenceSystem\\API\\OSA.Infructructure.Services\\OSA.Infructructure.Services.csproj"
             }

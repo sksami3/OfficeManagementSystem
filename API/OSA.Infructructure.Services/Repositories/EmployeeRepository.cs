@@ -1,7 +1,8 @@
 ﻿using OAS.Core.Entity;
 using OAS.Core.Entity.ViewModel;
-using OSA.Core.Interface;
-using OSA.Infructructure.Services.Base;
+using OSA.Core.Repository.Repositories;
+using OSA.Infructructure.Services.Repositories.Base;
+using OSA.Infructure.Context.OASDbContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +11,19 @@ using System.Threading.Tasks;
 
 namespace OSA.Infructructure.Services
 {
-    public class EmployeeService : BaseService<Employee>, IEmployeeRepository
+    public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
     {
+        private OfficeAttendenceSystemDbContext _context;
+        internal EmployeeRepository(OfficeAttendenceSystemDbContext context)
+            : base(context)
+        {
+            _context = context;
+        }
         public async Task<EmployeeViewModel> GetEmployeesWithDeptName(int start = 0, int length = 0, string searchValue = "")
         {
-            var dept = _DbContextForOtherUse.Departments;
+            var dept = _context.Departments;
 
-            var eList = from e in _DbContextForOtherUse.Employees
+            var eList = from e in _context.Employees
                      join d in dept
                      on e.Department.Id equals d.Id
                      where true
