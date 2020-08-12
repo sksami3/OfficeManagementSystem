@@ -13,11 +13,9 @@ namespace OSA.Infructructure.Services
     public class UnitOfWork : IUnitOfWork
     {
         private readonly OfficeAttendenceSystemDbContext _DbContext;
-        DbContextOptionsBuilder<OfficeAttendenceSystemDbContext> _optionsBuilder;
-        public UnitOfWork()
+        public UnitOfWork(OfficeAttendenceSystemDbContext DbContext)
         {
-            _optionsBuilder = new DbContextOptionsBuilder<OfficeAttendenceSystemDbContext>();
-            _DbContext = new OfficeAttendenceSystemDbContext(_optionsBuilder.Options);
+            _DbContext = DbContext;
             Departments = new DepartmentRepository(_DbContext);
             Employees = new EmployeeRepository(_DbContext);
         }

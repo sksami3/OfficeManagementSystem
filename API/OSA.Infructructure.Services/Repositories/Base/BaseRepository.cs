@@ -16,16 +16,12 @@ namespace OSA.Infructructure.Services.Repositories.Base
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseModel
     {
-        public OfficeAttendenceSystemDbContext _DbContextForOtherUse;
         private OfficeAttendenceSystemDbContext _DbContext;
         internal DbSet<TEntity> _innerDB;
-        DbContextOptionsBuilder<OfficeAttendenceSystemDbContext> _optionsBuilder;
 
         internal BaseRepository(OfficeAttendenceSystemDbContext DbContext)
         {
-            _optionsBuilder = new DbContextOptionsBuilder<OfficeAttendenceSystemDbContext>();
-            _DbContext = DbContext;//new OfficeAttendenceSystemDbContext(_optionsBuilder.Options);
-            _DbContextForOtherUse = new OfficeAttendenceSystemDbContext(_optionsBuilder.Options);
+            _DbContext = DbContext;
             _innerDB = _DbContext.Set<TEntity>();
         }
         public async Task<bool> Delete(TEntity entity)
