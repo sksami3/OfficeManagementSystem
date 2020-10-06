@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit, ViewChild } from '@angular/core';
 import { DepartmentService } from 'src/app/Shared/Api/department.service';
 import { Department } from 'src/app/Shared/Models/Department';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/Shared/NotificationService/notification.service';
-
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-department-list',

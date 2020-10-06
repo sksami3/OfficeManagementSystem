@@ -34,11 +34,11 @@ import { MainViewComponent } from './Home/main-view/main-view.component';
 @NgModule({
   declarations: [
     AppComponent,
+    DepartmentPostComponent,
     DepartmentListComponent,
     DepartmentEditComponent,
     //DepartmentHeaderComponent,
     HomeComponent,
-    DepartmentPostComponent,
     //DepartmentSidebarComponent,
     EmployeePostComponent,
     EmployeeListComponent,

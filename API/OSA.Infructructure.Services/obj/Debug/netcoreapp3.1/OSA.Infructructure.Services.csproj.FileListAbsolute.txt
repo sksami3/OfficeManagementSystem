@@ -32,3 +32,5 @@ D:\Angular\OfficeAttendenceSystem\API\OSA.Infructructure.Services\bin\Debug\netc
 D:\Angular\OfficeAttendenceSystem\API\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OSA.Core.Repository.pdb
 D:\Angular\OfficeAttendenceSystem\API\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OSA.Infructure.Persistence.dll
 D:\Angular\OfficeAttendenceSystem\API\OSA.Infructructure.Services\bin\Debug\netcoreapp3.1\OSA.Infructure.Persistence.pdb
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructructure.Services\obj\Debug\netcoreapp3.1\OSA.Infructructure.Services.csproj.CoreCompileInputs.cache
+D:\Angular\OfficeAttendenceSystem\API\OSA.Infructructure.Services\obj\Debug\netcoreapp3.1\OSA.Infructructure.Services.genruntimeconfig.cache
