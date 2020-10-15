@@ -1,4 +1,5 @@
-﻿using OAS.Core.Entity;
+﻿using Microsoft.EntityFrameworkCore;
+using OAS.Core.Entity;
 using OAS.Core.Entity.ViewModel;
 using OSA.Core.Repository.Repositories;
 using OSA.Infructructure.Services.Repositories.Base;
@@ -19,6 +20,12 @@ namespace OSA.Infructructure.Services
         {
             _context = context;
         }
+
+        public  Task<Employee> GetEmployeesByUsername(string username)
+        {
+            return _innerDB.Where(x => !x.IsDelete && x.User.Username == username).SingleOrDefaultAsync();
+        }
+
         public async Task<EmployeeViewModel> GetEmployeesWithDeptName(int start = 0, int length = 0, string searchValue = "")
         {
             var dept = _context.Departments;

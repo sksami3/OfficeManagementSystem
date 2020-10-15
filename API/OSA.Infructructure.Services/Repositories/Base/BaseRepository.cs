@@ -16,8 +16,8 @@ namespace OSA.Infructructure.Services.Repositories.Base
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseModel
     {
-        private OfficeAttendenceSystemDbContext _DbContext;
-        internal DbSet<TEntity> _innerDB;
+        protected OfficeAttendenceSystemDbContext _DbContext;
+        protected internal DbSet<TEntity> _innerDB;
 
         internal BaseRepository(OfficeAttendenceSystemDbContext DbContext)
         {
@@ -65,7 +65,14 @@ namespace OSA.Infructructure.Services.Repositories.Base
             entity.IsDelete = false;
 
            _innerDB.Add(entity);
-            await _DbContext.SaveChangesAsync();
+            try
+            {
+                await _DbContext.SaveChangesAsync();
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
             return true;
         }
 

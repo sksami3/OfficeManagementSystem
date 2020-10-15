@@ -11,5 +11,6 @@ namespace OSA.Core.Repository.Repositories
     public interface IEmployeeRepository : IBaseRepository<Employee>
     {
         Task<EmployeeViewModel> GetEmployeesWithDeptName(int draw,int length,string searchValue);
+        Task<Employee> GetEmployeesByUsername(string username);
     }
 }

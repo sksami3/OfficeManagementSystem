@@ -16,45 +16,58 @@ import { RouterModule, Routes } from '@angular/router';
 //import { DepartmentSidebarComponent } from './Department/department-sidebar/department-sidebar.component';
 import { EmployeePostComponent } from './Employee/employee-post/employee-post.component';
 import { EmployeeListComponent } from './Employee/employee-list/employee-list.component';
+import { CreateAttendanceComponent } from './Attendance/create-attendance/create-attendance.component';
+import { LoginComponent } from './Home/Account/login/login.component';
+import { AccountComponent } from './Home/Account/account/account.component';
+import { Department } from './Shared/Models/Department';
+import { MainViewComponent } from './Home/main-view/main-view.component';
 
 
-const appRoutes: Routes = 
-[
-  { 
-    path: '',
-     component: HomeComponent 
-  },
-  { 
-    path: 'Home',
-     component: HomeComponent 
-  },
-  { 
-    path: 'departments',      
-    component: DepartmentListComponent,
-  },
-  {
-    path: 'EditDepartment/:id',
-    component: DepartmentEditComponent
-    
-  },
-  {
-    path: 'PostDepartment',
-    component: DepartmentPostComponent
-    
-  },
-  {
-    path: 'PostEmployee',
-    component: EmployeePostComponent
-    
-  },
-  {
-    path: 'Employees',
-    component: EmployeeListComponent
-    
-  },
-  
-  { path: '**', component: PageNotFoundComponent }
-];
+
+const appRoutes: Routes =
+  [
+    {
+      path: '',
+      component: MainViewComponent,
+      children: [{ path: '', component: HomeComponent }]
+    },
+    {
+      path: 'Department',
+      component: MainViewComponent,
+      children: [{ path: 'departments', component: DepartmentListComponent }]
+    },
+    {
+      path: 'Department',
+      component: MainViewComponent,
+      children: [{ path: 'EditDepartment/:id', component: DepartmentEditComponent }]
+    },
+    {
+      path: 'Department',
+      component: MainViewComponent,
+      children: [{ path: 'PostDepartment', component: DepartmentPostComponent }]
+    },
+    {
+      path: 'Employee',
+      component: MainViewComponent,
+      children: [{ path: 'PostEmployee', component: EmployeePostComponent }]
+    },
+    {
+      path: 'Employee',
+      component: MainViewComponent,
+      children: [{ path: 'Employees', component: EmployeeListComponent }]
+    },
+    {
+      path: 'Employee',
+      component: MainViewComponent,
+      children: [{ path: 'CreateAttendance', component: CreateAttendanceComponent }]
+    },
+    {
+      path: 'Login',
+      component: AccountComponent,
+      children: [{ path: '', component: LoginComponent }]
+    },
+    { path: '**', component: PageNotFoundComponent }
+  ];
 
 
 @NgModule({

@@ -13,6 +13,8 @@ namespace OAS.Core.Entity.Base
         public long Id { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime UpdatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
         public bool IsDelete { get; set; }
     }
 }

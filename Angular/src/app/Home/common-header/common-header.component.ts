@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from '../../Shared/Api/authentication.service'
 
 @Component({
   selector: 'common-header',
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class CommonHeaderComponent implements OnInit {
 
   logo = "assets/logo.png";
-  constructor() { }
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit(): void {
   }
+  logout(): void {
+    console.log("logout button working");
+    this.auth.logout();
+  }
+  
 
 }

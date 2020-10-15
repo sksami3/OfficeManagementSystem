@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row headerInfo">
+        <div class="col-md-8 inlineInfo">
+            <div class="col-md-6 col-sm-12 col-xs-12 centerInlineInfo">
+                <P id="datetime">{{date | date: "dd MMMM,yyyy"}}</P>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12 centerInlineInfo">
+                <P id="datetime">{{date | date: "HH:mm:ss a"}}</P>
+            </div>
+        </div>
+        <div class="col-md-4 clockk">
+            <aside style="float: right;">
+                <cs-canvas-clock></cs-canvas-clock>
+            </aside>
+        </div>
+    </div><br>
+
+    <div #fform="ngForm" [formGroup]="attendanceForm" *ngIf="!isAttendanceCompletedForToday">
+        <div class="row">
+            <div class="col-md-12" *ngIf="!isAttendedForToday && !isAttendanceCompletedForToday">
+                <div class="form-group">
+                    <div class="row">
+                        <input type="checkbox" (change)="StartEvent(($event))" formControlName="Start" id="Start" name="Start" value="Start">
+                        <label for="Start" data-content="Click Here To Start Office">Click Here To Start Office</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Collapsable Card Example -->
+            <div class="col-md-12 card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                    <h6 class="m-0 font-weight-bold text-primary">Optional Fields</h6>
+                </a>
+                <!-- Card Content - Collapse -->
+                <div class="collapse show" id="collapseCardExample">
+                    <div class="card-body">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="myfile">Upload Todays Done Work List:</label>
+                                    <input type="file" id="myfile" name="myfile" multiple>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="WorkDetails">Work Details:</label>
+                                    <textarea rows="4" formControlName="WorkDetails" cols="50" name="WorkDetails"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="row">
+                        <input (change)="EndEvent(($event))" type="checkbox" formControlName="End" id="End" name="End" value="End">
+                        <label for="End" data-content="Click Here To Leave Office">Click Here To Leave Office</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="isAttendanceCompletedForToday">
+        <div class="col-md-12">
+            <P style="font-size: 2em;">Attendance Counted For Today</P>
+        </div>
+    </div>
+
+</div>

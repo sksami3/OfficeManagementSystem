@@ -80,6 +80,7 @@ export class DepartmentListComponent implements OnInit {
   ngOnInit(): void {
     //console.log(JSON.stringify(this.departmetnList));
     this.departmentServive.getAll().subscribe( data => {
+      //console.log(data);
         this.departmetnList = data;
     });
   }

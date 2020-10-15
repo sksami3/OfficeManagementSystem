@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using OAS.Core.Entity;
+using OAS.Core.Entity.AuthModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,12 +11,15 @@ namespace OSA.Infructure.Context.OASDbContext
 {
     public class OfficeAttendenceSystemDbContext : DbContext
     {
-        public OfficeAttendenceSystemDbContext(DbContextOptions<OfficeAttendenceSystemDbContext> options) : base(options)
+        public OfficeAttendenceSystemDbContext()
         {
 
         }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<Attachment> Attachments { get; set; }
+        public DbSet<Attendance> Attendances { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

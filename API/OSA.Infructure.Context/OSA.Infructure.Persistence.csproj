@@ -5,19 +5,37 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="3.1.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2">
+    <Compile Remove="Migrations\20201014154848_column_name_changed.cs" />
+    <Compile Remove="Migrations\20201014154848_column_name_changed.Designer.cs" />
+    <Compile Remove="Migrations\20201014155647_column_name_changed.cs" />
+    <Compile Remove="Migrations\20201014155647_column_name_changed.Designer.cs" />
+    <Compile Remove="Migrations\20201014160321_column_name_changed.cs" />
+    <Compile Remove="Migrations\20201014160321_column_name_changed.Designer.cs" />
+    <Compile Remove="Migrations\20201014160938_employee and user relation.cs" />
+    <Compile Remove="Migrations\20201014160938_employee and user relation.Designer.cs" />
+    <Compile Remove="Migrations\20201014161019_employee and user relation.cs" />
+    <Compile Remove="Migrations\20201014161019_employee and user relation.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.8" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.8" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\OAS.Core.Entity\OAS.Core.Entity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="OSA\Infructure\Context\Migrations\" />
   </ItemGroup>
 
 </Project>

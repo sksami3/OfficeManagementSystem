@@ -6,3 +6,9 @@ mat-header-cell {
 table {
     width: 100%;
 }
+
+@media screen and (max-width: 992px) {
+    .mat-column-id {
+        display: none;
+    }
+}

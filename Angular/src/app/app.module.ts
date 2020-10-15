@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -28,12 +28,31 @@ import { CommonHeaderComponent } from './Home/common-header/common-header.compon
 import { CommonSidebarComponent } from './Home/common-sidebar/common-sidebar.component';
 import { CommonFooterComponent } from './Home/common-footer/common-footer.component';
 import { EscapeHtmlPipe } from './Shared/Utility/keep-html.pipe';
+import { CreateAttendanceComponent } from './Attendance/create-attendance/create-attendance.component';
+import { CanvasClockComponent } from './Attendance/canvas-clock/canvas-clock.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card'; 
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+  AmazonLoginProvider,
+} from 'angularx-social-login';
+import { AccountModule } from './Home/Account/account/account.module';
+import { AuthenticationService } from './Shared/Api/authentication.service';
 import { MainViewComponent } from './Home/main-view/main-view.component';
+import { JwtInterceptor } from './Shared/helper/jwt.interceptor';
+import { ErrorInterceptor } from './Shared/helper/error.interceptor';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    PageNotFoundComponent,
+    CommonHeaderComponent,
+    CommonSidebarComponent,
+    CommonFooterComponent,
     DepartmentPostComponent,
     DepartmentListComponent,
     DepartmentEditComponent,
@@ -42,11 +61,11 @@ import { MainViewComponent } from './Home/main-view/main-view.component';
     //DepartmentSidebarComponent,
     EmployeePostComponent,
     EmployeeListComponent,
-    CommonHeaderComponent,
-    CommonSidebarComponent,
-    CommonFooterComponent,
+   
     EscapeHtmlPipe,
-    MainViewComponent       
+    CreateAttendanceComponent,
+    CanvasClockComponent,
+    MainViewComponent    
   ],
   imports: [
     BrowserModule,
@@ -62,9 +81,44 @@ import { MainViewComponent } from './Home/main-view/main-view.component';
     NgbTimepickerModule,
     CoolDialogsModule,
     ChartsModule,
-    DataTablesModule
+    DataTablesModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatCardModule,
+    SocialLoginModule,
+    AccountModule,
   ],
-  providers: [DepartmentService],
-  bootstrap: [AppComponent]
+  providers: [
+    DepartmentService,
+    AuthenticationService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              'clientId'
+            ),
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('clientId'),
+          },
+          {
+            id: AmazonLoginProvider.PROVIDER_ID,
+            provider: new AmazonLoginProvider(
+              'clientId'
+            ),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

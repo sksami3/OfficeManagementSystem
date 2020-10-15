@@ -18,10 +18,16 @@ namespace OSA.Infructructure.Services
             _DbContext = DbContext;
             Departments = new DepartmentRepository(_DbContext);
             Employees = new EmployeeRepository(_DbContext);
+            Users = new UserRepository(_DbContext);
+            Attendances = new AttendanceRepository(_DbContext);
+            Attachments = new AttachmentRepository(_DbContext);
         }
 
         public IDepartmentRepository Departments { get; private set; }
         public IEmployeeRepository Employees { get; private set; }
+        public IUserRepository Users { get; private set; }
+        public IAttachmentRepository Attachments { get; private set; }
+        public IAttendanceRepository Attendances { get; private set; }
 
 
         public Task<int> Complete()

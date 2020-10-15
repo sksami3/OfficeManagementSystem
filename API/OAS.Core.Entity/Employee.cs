@@ -1,4 +1,5 @@
-﻿using OAS.Core.Entity.Base;
+﻿using OAS.Core.Entity.AuthModels;
+using OAS.Core.Entity.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -26,6 +27,13 @@ namespace OAS.Core.Entity
         [Required]
         public long DepartmentId { get; set; }
         public virtual Department Department { get; set; }
+
+        //[ForeignKey("User")]
+        //[Required]
+        //public long UserId { get; set; }
+        public virtual User User { get; set; }
+
+
         [NotMapped]
         public string DepartmentName { get; set; }
 

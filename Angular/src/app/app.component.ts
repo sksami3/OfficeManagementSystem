@@ -14,9 +14,9 @@ import { NotificationService } from 'src/app/Shared/NotificationService/notifica
 export class AppComponent {
   title = 'Office-Attendence-System';
 
-  constructor(private departmentService : DepartmentService, private router : Router, private route: ActivatedRoute, private notifyService: NotificationService ) {
+  constructor(private router : Router, private route: ActivatedRoute,) {
     this.router.errorHandler = (error: any) => {
-      this.router.navigate(['departments']); // or redirect to default route
+      this.router.navigate(['']); // or redirect to default route
       console.log(error);
       
     }

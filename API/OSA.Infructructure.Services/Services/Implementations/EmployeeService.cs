@@ -44,6 +44,11 @@ namespace OSA.Infructructure.Services.Services.Implementations
             return _unitOfWork.Employees.GetAll();
         }
 
+        public Task<Employee> GetEmployeesByUsername(string username)
+        {
+            return _unitOfWork.Employees.GetEmployeesByUsername(username);
+        }
+
         public Task<EmployeeViewModel> GetEmployeesWithDeptName(int draw, int length, string searchValue)
         {
             return _unitOfWork.Employees.GetEmployeesWithDeptName(draw,length,searchValue);

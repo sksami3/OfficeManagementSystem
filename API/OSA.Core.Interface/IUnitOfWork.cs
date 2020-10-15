@@ -10,6 +10,9 @@ namespace OSA.Core.Repository
     {
         IDepartmentRepository Departments { get; }
         IEmployeeRepository Employees { get; }
+        IAttachmentRepository Attachments { get; }
+        IAttendanceRepository Attendances { get; }
+        IUserRepository Users { get; }
         Task<int> Complete();
     }
 }

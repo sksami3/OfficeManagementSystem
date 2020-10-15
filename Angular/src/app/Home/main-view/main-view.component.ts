@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/Shared/Api/authentication.service';
 
 @Component({
   selector: 'main-view',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthenticationService) {
+    //console.log("main view component");
+   }
 
   ngOnInit(): void {
   }
