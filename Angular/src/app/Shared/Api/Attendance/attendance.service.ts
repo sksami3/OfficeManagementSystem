@@ -1,9 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { EventInput } from '@fullcalendar/angular';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { baseURL } from '../../baseurl';
 import { Attendance } from '../../Models/Attendance';
+import { PerDayAttendanceCalculate } from '../../Models/PerDayAttendanceCalculate';
 import { BaseService } from '../Base/base-service.service';
 import { ProcessHTTPMsgService } from '../process-httpmsg.service';
 import { IAttendanceRepository } from './iattendance-repository';
@@ -34,6 +36,16 @@ export class AttendanceService extends BaseService<Attendance> implements IAtten
     };
 
     return this.httpp.post(baseURL + 'api/Employees/GoodByeForToday',att,httpOptions)
+    .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+  PerDayCalculation(username: string) : Observable<EventInput[]> {
+    const httpOptions = {
+      headers : new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+
+    return this.httpp.post<EventInput[]>(baseURL + 'api/Employees/PerDayCalculation?username='+username,httpOptions)
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 }

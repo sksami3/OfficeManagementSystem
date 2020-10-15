@@ -14,6 +14,7 @@ using System.Security.Claims;
 using OSA.Infructructure.Services.Helpers;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Configuration;
+using OAS.Core.Entity.ViewModel;
 
 namespace OSA.Api.Helper
 {
@@ -94,6 +95,21 @@ namespace OSA.Api.Helper
         };
 
             return user;
+        }
+
+        internal List<PerDayCalculationVM> ConvertAttendanceToPerDayCalculation(List<Attendance> listOfAttendance)
+        {
+            List<PerDayCalculationVM> pdcvm = new List<PerDayCalculationVM>();
+            foreach (Attendance la in listOfAttendance)
+            {
+                PerDayCalculationVM p = new PerDayCalculationVM();
+                TimeSpan ts = (TimeSpan)(la.End - la.Start);
+                double totalminuite = ts.TotalMinutes;
+                p.title = "Attended for " + totalminuite.ToString().Substring(0,4) + " minutes";
+                p.date = la.CreateDate.Date;
+                pdcvm.Add(p);
+            }
+            return pdcvm;
         }
     }
 

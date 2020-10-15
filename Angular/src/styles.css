@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+.fc-event-time {
+    display: none;
+}
+
+.fc-event-title {
+    background-color: yellowgreen;
+}
+
+.fc-daygrid-dot-event .fc-event-title {
+    overflow: auto !important;
+}

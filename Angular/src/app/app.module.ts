@@ -44,7 +44,15 @@ import { AuthenticationService } from './Shared/Api/authentication.service';
 import { MainViewComponent } from './Home/main-view/main-view.component';
 import { JwtInterceptor } from './Shared/helper/jwt.interceptor';
 import { ErrorInterceptor } from './Shared/helper/error.interceptor';
+import { ShowAttendanceComponent } from './Attendance/show-attendance/show-attendance.component';
+import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+//import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  //interactionPlugin
+]);
 
 @NgModule({
   declarations: [
@@ -65,7 +73,8 @@ import { ErrorInterceptor } from './Shared/helper/error.interceptor';
     EscapeHtmlPipe,
     CreateAttendanceComponent,
     CanvasClockComponent,
-    MainViewComponent    
+    MainViewComponent,
+    ShowAttendanceComponent    
   ],
   imports: [
     BrowserModule,
@@ -87,6 +96,7 @@ import { ErrorInterceptor } from './Shared/helper/error.interceptor';
     MatCardModule,
     SocialLoginModule,
     AccountModule,
+    FullCalendarModule // register FullCalendar with you app
   ],
   providers: [
     DepartmentService,

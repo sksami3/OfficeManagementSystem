@@ -1,4 +1,5 @@
 ﻿using OAS.Core.Entity;
+using OAS.Core.Entity.ViewModel;
 using OSA.Core.Repository;
 using OSA.Infructructure.Services.Services.Interfaces;
 using System;
@@ -56,6 +57,11 @@ namespace OSA.Infructructure.Services.Services.Implementations
         public bool InsertRange(IEnumerable<Attendance> entities)
         {
             return _unitOfWork.Attendances.InsertRange(entities);
+        }
+
+        public Task<List<Attendance>> GetCompletedAttendenceByUserName(string username)
+        {
+            return _unitOfWork.Attendances.GetCompletedAttendenceByUserName(username);
         }
 
         public Attendance SingleOrDefault(Expression<Func<Attendance, bool>> predicate)

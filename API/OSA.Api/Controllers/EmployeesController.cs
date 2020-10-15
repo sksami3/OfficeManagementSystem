@@ -200,6 +200,8 @@ namespace OSA.Api.Controllers
         [HttpPost("PresentPlease")]
         public async Task<bool> PresentPlease(Attendance attendance)
         {
+            //temporary
+            attendance.Start = DateTime.Now;
             attendance.Employee = await _employeeService.GetEmployeesByUsername(User.Identity.Name.ToString());
             return await _attendanceService.Insert(attendance);
         }
@@ -214,9 +216,18 @@ namespace OSA.Api.Controllers
                 return false;
             else
             {
-                a.End = attendance.End;
+                //temporary
+                a.End = DateTime.Now;
                 return await _attendanceService.Update(a);
             }        
+        }
+
+        [Authorize(Roles = "Employee")]
+        [HttpPost("PerDayCalculation")]
+        public async Task<List<PerDayCalculationVM>> PerDayCalculation(string username)
+        {
+            List<Attendance> listOfAttendance = await _attendanceService.GetCompletedAttendenceByUserName(username);
+            return _helper.ConvertAttendanceToPerDayCalculation(listOfAttendance);
         }
     }
 }

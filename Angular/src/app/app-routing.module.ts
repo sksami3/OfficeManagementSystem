@@ -21,6 +21,7 @@ import { LoginComponent } from './Home/Account/login/login.component';
 import { AccountComponent } from './Home/Account/account/account.component';
 import { Department } from './Shared/Models/Department';
 import { MainViewComponent } from './Home/main-view/main-view.component';
+import { ShowAttendanceComponent } from './Attendance/show-attendance/show-attendance.component';
 
 
 
@@ -60,6 +61,11 @@ const appRoutes: Routes =
       path: 'Employee',
       component: MainViewComponent,
       children: [{ path: 'CreateAttendance', component: CreateAttendanceComponent }]
+    },
+    {
+      path: 'Employee',
+      component: MainViewComponent,
+      children: [{ path: 'ShowAttendance', component: ShowAttendanceComponent }]
     },
     {
       path: 'Login',
